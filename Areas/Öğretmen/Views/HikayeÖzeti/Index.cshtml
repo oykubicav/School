@@ -1,0 +1,111 @@
+@model List<TestIdentityApp.Data.Models.HikayeÖzeti>
+@{
+    Layout = "_Layout";
+}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/style.css">
+    <title>Public Hikayeler | Ludiflex</title>
+    <style>
+        /* Container for the entire content */
+        .contain {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+           
+            padding: 0px;
+           
+            margin: 0 auto;
+        }
+
+        /* Style for the card */
+        .hikaye-card {
+            border-color: #2980b9;
+            border-radius: 10px;
+            background-color: #f7f9fb;
+        }
+
+        /* Title style */
+        .card-title {
+            color: #2c3e50;
+        }
+
+        /* Text style */
+        .card-text {
+            color: #34495e;
+        }
+
+        /* Button style */
+        .btn-primary {
+            background-color: #2980b9;
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background-color: #3498db;
+        }
+
+        /* Title styling */
+        h2.text-primary {
+            text-align: left; /* Align the title to the left */
+            margin-bottom: 20px;
+            
+        }
+
+        body {
+            margin-top: 0px; /* Match this to your "Create" page */
+            padding-top: 0; /* Ensure no extra padding */
+        }
+        .btn-primary {
+            background-color: #2980b9;
+            color: #fff;
+            z-index: 1000; /* Ensure the button is on top */
+            position: relative;
+        }
+
+    </style>
+</head>
+<body id="top">
+
+
+<div class="contain">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="text-primary">Public Hikayeler</h2>
+        </div>
+    </div>
+
+    @foreach (var obj in Model)
+    {
+        <div class="card mb-4 hikaye-card">
+            <div class="card-body">
+                <h5 class="card-title">@obj.HikayeAdı</h5>
+                <p class="card-text">
+                    @if (obj.Özet.Length > 100)
+                    {
+                        var truncatedText = obj.Özet.Substring(0, 100);
+                        var lastSpaceIndex = truncatedText.LastIndexOf(" ");
+                        if (lastSpaceIndex > 0)
+                        {
+                            truncatedText = truncatedText.Substring(0, lastSpaceIndex);
+                        }
+
+                        @: @truncatedText ...
+                    }
+                    else
+                    {
+                        @: @obj.Özet
+                    }
+                </p>
+                <a href="@Url.Action("Edit", "HikayeÖzeti", new { area = "Öğretmen", id = @obj.Id })" class="btn btn-primary">Devamını Oku</a>
+
+
+            </div>
+        </div>
+    }
+</div>
+</body>

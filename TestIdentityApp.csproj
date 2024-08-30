@@ -1,0 +1,60 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.8" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.8">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.4" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\Images\profiles\" />
+    <Folder Include="wwwroot\Images\profile\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Areas\Öğrenci\Views\YıldızÖğrenci\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\Öğrenci\Views\YıldızÖğrenci\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\Öğrenci\Views\YıldızÖğrenci\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\Veli\Views\YıldızÖğrenci\Create.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\Veli\Views\YıldızÖğrenci\Delete.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\Veli\Views\YıldızÖğrenci\Edit.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\Desktop\Veli\.DS_Store">
+      <Link>Areas\Veli\Veli\.DS_Store</Link>
+    </Content>
+    <Content Include="..\Desktop\Veli\Views\HikayeÖzeti\Details.cshtml">
+      <Link>Areas\Veli\Veli\Views\HikayeÖzeti\Details.cshtml</Link>
+    </Content>
+    <Content Include="..\Desktop\Veli\Views\HikayeÖzeti\Index.cshtml">
+      <Link>Areas\Veli\Veli\Views\HikayeÖzeti\Index.cshtml</Link>
+    </Content>
+    <Content Include="..\Desktop\Veli\Views\Ödev\Index.cshtml">
+      <Link>Areas\Veli\Veli\Views\Ödev\Index.cshtml</Link>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\Desktop\Veli\Controllers\HikayeÖzetiController.cs">
+      <Link>Areas\Veli\Veli\Controllers\HikayeÖzetiController.cs</Link>
+    </Compile>
+    <Compile Include="..\Desktop\Veli\Controllers\ÖdevController.cs">
+      <Link>Areas\Veli\Veli\Controllers\ÖdevController.cs</Link>
+    </Compile>
+  </ItemGroup>
+
+</Project>

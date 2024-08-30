@@ -1,0 +1,63 @@
+@model TestIdentityApp.Data.Models.HikayeÖzeti
+@{
+    Layout = "_Layout";
+}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/style.css">
+    <title>@Model.HikayeAdı | Ludiflex</title>
+    <style>
+        /* Container for the entire content */
+        .container {
+            padding-top: 150px; /* Adjust this value to match the layout of other pages */
+            max-width: 800px;
+            margin: 0 auto; /* Center horizontally */
+        }
+
+        /* Title style */
+        .details-title {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        /* Date style */
+        .details-date {
+            font-size: 1.1rem;
+            color: #34495e;
+            margin-bottom: 30px;
+        }
+
+        /* Text style */
+        .details-text {
+            font-size: 1.3rem;
+            color: #34495e;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .btn-primary {
+            background-color: #2980b9;
+            color: #fff;
+            border-radius: 10px;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+
+        .btn-primary:hover {
+            background-color: #3498db;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 class="details-title">@Model.HikayeAdı</h1>
+   
+    <p class="details-text">@Model.Özet</p>
+    <a href="@Url.Action("Index", "HikayeÖzeti", new { area = "Öğretmen" })" class="btn btn-primary">Geri Dön</a>
+</div>
+</body>
