@@ -16,8 +16,9 @@ public class HikayeÖzetiRepository: Repository<HikayeÖzeti>, IHikayeÖzeti
     }
     public void Update(HikayeÖzeti obj)
     {
-        _context.HikayeÖzetleri.Update(obj);
+    _context.HikayeÖzetleri.Update(obj);
     }
+
 
  
 }

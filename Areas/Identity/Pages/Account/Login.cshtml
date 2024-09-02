@@ -101,6 +101,13 @@
     <div class="login-header">
         <header>Giriş Yap</header>
     </div>
+
+    @if (TempData["Message"] != null)
+    {
+    <div class="alert alert-success">
+        @TempData["Message"]
+    </div>
+    }
     <form id="account" method="post">
         <div class="input-box">
             <input asp-for="Input.Email" class="input-field" placeholder="Email" autocomplete="username" required>

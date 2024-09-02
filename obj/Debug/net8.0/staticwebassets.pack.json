@@ -5,6 +5,34 @@
       "PackagePath": "staticwebassets/TestIdentityApp.bundle.scp.css"
     },
     {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/149b9127-77cc-4721-8679-eacf15d4ff69black-2-slot-toaster.jpg",
+      "PackagePath": "staticwebassets/Images/149b9127-77cc-4721-8679-eacf15d4ff69black-2-slot-toaster.jpg"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/160a263f-28bb-4747-a5f6-f08bf18f0ef1bathroom-rug.jpg",
+      "PackagePath": "staticwebassets/Images/160a263f-28bb-4747-a5f6-f08bf18f0ef1bathroom-rug.jpg"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/1a986590-f182-4709-81f6-f6d1c758bc26athletic-cotton-socks-6-pairs.jpg",
+      "PackagePath": "staticwebassets/Images/1a986590-f182-4709-81f6-f6d1c758bc26athletic-cotton-socks-6-pairs.jpg"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/50cecb4a-c10b-4825-9d43-914291915074bathroom-rug.jpg",
+      "PackagePath": "staticwebassets/Images/50cecb4a-c10b-4825-9d43-914291915074bathroom-rug.jpg"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/5d9558fe-815f-4e6c-931f-c5ca817091ffIMG_4762.HEIC",
+      "PackagePath": "staticwebassets/Images/5d9558fe-815f-4e6c-931f-c5ca817091ffIMG_4762.HEIC"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/852c31ea-b78c-452e-8ac9-33b30a893760adults-plain-cotton-tshirt-2-pack-teal.jpg",
+      "PackagePath": "staticwebassets/Images/852c31ea-b78c-452e-8ac9-33b30a893760adults-plain-cotton-tshirt-2-pack-teal.jpg"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/95d92e16-761c-42f7-b063-af753a2c3b05double-elongated-twist-french-wire-earrings.webp",
+      "PackagePath": "staticwebassets/Images/95d92e16-761c-42f7-b063-af753a2c3b05double-elongated-twist-french-wire-earrings.webp"
+    },
+    {
       "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/Thumbs.db",
       "PackagePath": "staticwebassets/Images/Thumbs.db"
     },

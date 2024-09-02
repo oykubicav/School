@@ -1,5 +1,7 @@
 using System.Diagnostics;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using TestIdentityApp.Data.Models;
 using TestIdentityApp.Models;
 
@@ -8,16 +10,37 @@ namespace TestIdentityApp.Controllers;
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+    private readonly UserManager<ApplicationUser> _userManager;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ILogger<HomeController> logger, UserManager<ApplicationUser> userManager)
     {
         _logger = logger;
+        _userManager = userManager;
     }
 
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        return View();
-    }
+        
+        
+            var user = await _userManager.GetUserAsync(User);
+            if (user != null)
+            {
+                var roles = await _userManager.GetRolesAsync(user);
+
+                var model = new HomeViewModel
+                {
+                    User = user,
+                    Roles = roles ?? new List<string>()
+                };
+        
+                return View(model);
+            }
+    
+            // If the user is not logged in, return the view without any model
+            return View();
+        }
+
+    
 
     public IActionResult Privacy()
     {

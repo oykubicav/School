@@ -1,0 +1,155 @@
+@model TestIdentityApp.Data.Models.HikayeÖzeti
+@{
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Edit @Model.HikayeAdı | Ludiflex</title>
+    <style>
+        body {
+            background-color: rgba(245, 242, 235, 255);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .create-container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            padding: 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .create-header {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #2c3e50;
+            text-align: center;
+        }
+
+        .input-box {
+            width: 100%;
+            max-width: 700px;
+            margin-bottom: 25px;
+        }
+
+        .input-box label {
+            display: block;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #34495e;
+        }
+
+        .text-area {
+          
+            width: 400px;
+            height: 400px;
+            padding: 20px;
+            font-size: 1.2rem;
+            border: 3px solid #2980b9;
+            border-radius: 10px;
+            resize: none;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            font-size: 1.2rem;
+            border: 3px solid #2980b9;
+            border-radius: 10px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            display: inline-block;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-secondary {
+            background-color: #95a5a6;
+            color: #fff;
+            width: 150px;
+        }
+
+        .btn-secondary:hover {
+            background-color: #7f8c8d;
+        }
+
+        .submit-btn {
+            background-color: #2980b9;
+            color: #fff;
+            width: 150px; /* Ensure both buttons have the same width */
+        }
+
+        .submit-btn:hover {
+            background-color: #3498db;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: flex-start;
+            gap: 10px; /* Ensures space between buttons */
+        }
+
+        .text-danger {
+            color: red;
+        }
+
+  
+
+        .small-input {
+            width: 100%;
+            padding: 10px;
+            font-size: 1.2rem;
+            border: 3px solid #2980b9;
+            border-radius: 10px;
+        }
+
+       
+    </style>
+</head>
+<body>
+    <div class="create-container">
+        <header class="create-header">Düzenle</header> <!-- Same styling as the Create page header -->
+
+        <form asp-controller="HikayeÖzeti" asp-action="Edit" method="post">
+            <input type="hidden" asp-for="Id" />
+
+            <div class="input-box">
+                <label asp-for="HikayeAdı">Başlık</label>
+                <input asp-for="HikayeAdı" class="small-input" id="HikayeAdı" name="HikayeAdı" required />
+                <span asp-validation-for="HikayeAdı" class="text-danger"></span>
+            </div>
+
+            <div class="input-box">
+                <label asp-for="Özet">Özet</label>
+                <textarea asp-for="Özet" class="text-area" id="Özet" name="Özet" required>@Model.Özet</textarea>
+                <span asp-validation-for="Özet" class="text-danger"></span>
+            </div>
+
+            <div class="button-container">
+                <button type="submit" class="submit-btn">Kaydet</button>
+                <a asp-action="Index" class="btn btn-secondary">Geri Dön</a>
+            </div>
+
+        </form>
+    </div>
+</body>
+</html>

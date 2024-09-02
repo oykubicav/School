@@ -198,7 +198,7 @@ public async Task<IActionResult> OnPostAsync(string returnUrl = null)
             if (öğrenci != null)
             {
                 öğrenci.VeliId = user.Id; // Set the foreign key
-                öğrenci.Veli = (Veli)user;
+                öğrenci.Veli = (Data.Models.Veli)user;
                 ((Data.Models.Veli)user).Öğrenciler.Add(öğrenci);
             }
         }

@@ -4,6 +4,8 @@
     Layout = "_Layout";
 }
 
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,25 +13,38 @@
     <link rel="stylesheet" href="~/css/style.css">
     <title>@Model.User.UserName's Profile | Ludiflex</title>
     <style>
-        /* Container for the profile */
-        .profile-container {
+
+        body {
+            background-color: rgba(245,242,235,255);  /* Background color, adjust as needed */
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-direction: column;
-            padding: 20px;
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: #f7f9fb;
-            border: 3px solid #2980b9;
+            min-height: 100vh;
+            margin: 0;
+            padding-bottom: 0px;
+            padding-left: 0px;
+            padding-right: 0px;
+            box-sizing: border-box;
+        }
+        
+        
+
+        .profile-box {
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+            margin-top: 100px;
+            padding: 10px;
             border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 600px; /* Wider box */
+            max-width: 90%;
+            text-align: center; /* Center align the text */
         }
 
-        /* Profile header (image and basic info) */
         .profile-header {
-            display: flex;
-            align-items: center;
+            font-size: 1.5em;
             margin-bottom: 20px;
+            color: #333; /* Darker text color */
+            text-align: center;
         }
 
         .profile-image {
@@ -37,7 +52,15 @@
             height: 150px;
             border-radius: 50%;
             border: 3px solid #2980b9;
-            margin-right: 20px;
+            margin-bottom: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .profile-info {
+            margin-bottom: 20px;
+            color: #34495e;
         }
 
         .profile-info h1 {
@@ -48,12 +71,11 @@
 
         .profile-info p {
             font-size: 1.2rem;
-            color: #34495e;
         }
 
-        /* Profile content sections */
-        .profile-content .section {
+        .section {
             margin-bottom: 30px;
+            text-align: left; /* Align section text to the left */
         }
 
         .section h2 {
@@ -67,7 +89,6 @@
             color: #34495e;
         }
 
-        /* Button styling */
         .btn-primary {
             background-color: #2980b9;
             color: #fff;
@@ -77,106 +98,55 @@
             font-size: 1.2rem;
             cursor: pointer;
             margin-top: 20px;
+            display: inline-block;
         }
 
         .btn-primary:hover {
             background-color: #3498db;
         }
-
-        /* Modal for showing stories */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.5);
-        }
-
-        .modal-content {
-            background-color: #fefefe;
-            margin: 15% auto;
-            padding: 20px;
-            border: 1px solid #2980b9;
-            width: 80%;
-            border-radius: 10px;
-        }
-
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
     </style>
 </head>
-
 <body>
-    <div class="profile-container">
-        <div class="profile-header">
-            <img src="@Url.Content(Model.User.ImageUrl ?? "/images/profiles/default.png")"
-                 alt="@Model.User.UserName"
-                 class="profile-image">
-            <div class="profile-info">
-                <h1>@Model.User.Ad</h1>
-                <p><strong>Email:</strong> @Model.User.Email</p>
-                <p><strong>Phone:</strong> @Model.User.PhoneNumber</p>
-                <button class="btn btn-primary" id="show-stories">Show My Stories</button>
-            </div>
-        </div>
-
-        <div class="profile-content">
-            <div class="section">
-                <h2>Contact Information</h2>
-                <p><strong>Phone:</strong> @Model.User.PhoneNumber</p>
-                <p><strong>Email:</strong> @Model.User.Email</p>
-            </div>
-            <div class="section">
-                <h2>Basic Information</h2>
-                <!-- Add more information as needed -->
-            </div>
+<div class="profile-box">
+    <div class="profile-header">
+        <img src="@Url.Content(Model.User.ImageUrl ?? "/images/profiles/default.png")"
+             alt="@Model.User.UserName"
+             class="profile-image">
+        <div class="profile-info">
+            <h1>@Model.User.Ad</h1>
+            <p><strong>Email:</strong> @Model.User.Email</p>
+            <p><strong>Phone:</strong> @Model.User.PhoneNumber</p>
+            @if (Model.Roles.Contains("Öğrenci"))
+            {
+                <a href="@Url.Action("Index", "HikayeÖzeti", new { area = "Öğrenci" })" class="btn btn-primary">Hikayelerim</a>
+            
+            }
+            else if (Model.Roles.Contains("Öğretmen"))
+            {
+                <a href="@Url.Action("Index", "HikayeÖzeti", new { area = "Öğretmen" })" class="btn btn-primary">Devamını Oku</a>
+                
+            }
+            else if (Model.Roles.Contains("Veli"))
+            {
+                <a href="/Parent/Index" class="btn btn-primary">My Kid's Stories</a>
+            }
         </div>
     </div>
-   
-    <!-- Modal for showing stories -->
-    <div id="storiesModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            if(@Model.Roles.Contains("Öğrenci")){
-            <h2>My Stories</h2>}
-            if(@Model.Roles.Contains("Öğretmen")){
-            <h2>Stories</h2>}
-            if(@Model.Roles.Contains("Veli")){
-            <h2>My Kid's Stories</h2>}
-            <ul id="storiesList">
 
-                @foreach (var story in Model.HikayeOzetleri)
-                {
-                <li>@story.HikayeAdı - @story.Özet</li>
-                }
-            </ul>
+    <div class="profile-content">
+        <div class="section">
+            <h2>Contact Information</h2>
+            <p><strong>Phone:</strong> @Model.User.PhoneNumber</p>
+            <p><strong>Email:</strong> @Model.User.Email</p>
         </div>
-    </div>}
+        
+
+    </div>
+</div>
 </body>
-
-@section Scripts {
-    <script>
-        document.getElementById('show-stories').onclick = function () {
-            document.getElementById('storiesModal').style.display = 'block';
-        }
-
-        document.querySelector('.close').onclick = function () {
-            document.getElementById('storiesModal').style.display = 'none';
-        }
-    </script>
-}
+</html>

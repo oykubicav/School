@@ -126,10 +126,13 @@
         <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
         <input type="hidden" asp-for="Input.Role" />
         <div class="form-group">
-            <label asp-for="Input.ProfileImage" class="control-label">Profile Image</label>
-            <input asp-for="Input.ProfileImage" class="form-control" type="file" />
+            <label for="profileImageInput">
+                <img src="~/Images/default-profile.png" alt="Profile Icon" class="profile-icon" id="profileIcon">
+            </label>
+            <input asp-for="Input.ProfileImage" class="form-control" type="file" id="profileImageInput" style="display: none;" />
             <span asp-validation-for="Input.ProfileImage" class="text-danger"></span>
         </div>
+
         <!-- Profile Image Upload with Default Icon -->
       
         <!-- Email -->
@@ -190,7 +193,20 @@
 </div>
 
 @section Scripts {
-<partial name="_ValidationScriptsPartial"/>
+    <partial name="_ValidationScriptsPartial"/>
+<script>
+    document.getElementById("profileIcon").addEventListener("click", function() {
+        document.getElementById("profileImageInput").click();
+    });
+
+    document.getElementById("profileImageInput").addEventListener("change", function(event) {
+        const [file] = this.files;
+        if (file) {
+            document.getElementById("profileIcon").src = URL.createObjectURL(file);
+        }
+    });
+</script>
+
 }
 
 

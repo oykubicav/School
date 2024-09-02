@@ -1,4 +1,6 @@
-﻿@{
+﻿@model TestIdentityApp.Data.Models.HomeViewModel
+
+@{
     ViewData["Title"] = "Home Page";
 }
 <!DOCTYPE html>
@@ -43,7 +45,7 @@
     <link rel="preload" as="image" href="/images/hero-banner-2.jpg">
     <link rel="preload" as="image" href="/images/hero-shape-1.svg">
     <link rel="preload" as="image" href="/images/hero-shape-2.png">
-
+  
 </head>
 
 <body id="top">
@@ -70,13 +72,18 @@
                             4-A  <span class="span">Etkileşim</span> Platformu
                         </h1>
                         <p class="hero-text">
-                           Ödevler, hikayeler ve daha fazlası...
+                            Ödevler, hikayeler ve daha fazlası...
                         </p>
-                        <a href="/Identity/Account/Login" class="btn has-before">
-                            <span class="span">Başla</span>
-                            <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
-                        </a>
-                     
+                        @if (!(User.Identity.IsAuthenticated))
+                        {
+                            <a href="/Identity/Account/Login" class="btn has-before">
+                                <span class="span">Başla</span>
+                                <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+                            </a>
+                        }
+                        
+
+
                     </div>
 
                     <figure class="hero-banner">
@@ -249,11 +256,15 @@
                         
                        
                     </p>
-
-                    <a asp-controller="UserPage" asp-action="Profile" class="btn has-before">
-                        <span class="span">Profile</span>
+                    @if (Model?.Roles != null && Model.Roles.Contains("Öğrenci"))
+                    {
+                        <a asp-area="Öğrenci" asp-controller="HikayeÖzeti" asp-action="Create" class="btn has-before">
+                        <span class="span">Hikaye Yükle</span>
                         <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
                     </a>
+                    }
+
+
                     <img src="/images/about-shape-4.svg" width="100" height="100" loading="lazy" alt=""
                          class="shape about-shape-4">
 

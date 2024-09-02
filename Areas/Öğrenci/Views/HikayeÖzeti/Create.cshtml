@@ -13,13 +13,26 @@ Layout = "_Layout";
     <link rel="stylesheet" href="~/css/style.css">
     <title>Create Hikaye Özeti | Ludiflex</title>
     <style>
-        .create-container {
+        body {
+            background-color: rgba(245,242,235,255);  /* Background color, adjust as needed */
             display: flex;
             justify-content: center;
             align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding-bottom: 0px;
+            padding-left: 0px;
+            padding-right: 0px;
+            box-sizing: border-box;
+        }
+
+        .create-container {
+            display: flex;
+          
+         
             flex-direction: column;
             height: 100vh;
-            padding: 20px;
+            padding: 0;
             max-width: 800px;
             margin: 0 auto;
         }
@@ -64,7 +77,7 @@ Layout = "_Layout";
 
         .submit-btn {
             padding: 15px 50px;
-            background-color: #2980b9;
+            background-color: var(--kappel);
             color: #fff;
             border: none;
             border-radius: 10px;

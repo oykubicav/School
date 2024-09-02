@@ -31,30 +31,10 @@
     <_ContentIncludedByDefault Remove="Areas\Veli\Views\YıldızÖğrenci\Create.cshtml" />
     <_ContentIncludedByDefault Remove="Areas\Veli\Views\YıldızÖğrenci\Delete.cshtml" />
     <_ContentIncludedByDefault Remove="Areas\Veli\Views\YıldızÖğrenci\Edit.cshtml" />
+    <_ContentIncludedByDefault Remove="Areas\Öğrenci\Views\Ödev\Index.cshtml" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Content Include="..\Desktop\Veli\.DS_Store">
-      <Link>Areas\Veli\Veli\.DS_Store</Link>
-    </Content>
-    <Content Include="..\Desktop\Veli\Views\HikayeÖzeti\Details.cshtml">
-      <Link>Areas\Veli\Veli\Views\HikayeÖzeti\Details.cshtml</Link>
-    </Content>
-    <Content Include="..\Desktop\Veli\Views\HikayeÖzeti\Index.cshtml">
-      <Link>Areas\Veli\Veli\Views\HikayeÖzeti\Index.cshtml</Link>
-    </Content>
-    <Content Include="..\Desktop\Veli\Views\Ödev\Index.cshtml">
-      <Link>Areas\Veli\Veli\Views\Ödev\Index.cshtml</Link>
-    </Content>
-  </ItemGroup>
+  
 
-  <ItemGroup>
-    <Compile Include="..\Desktop\Veli\Controllers\HikayeÖzetiController.cs">
-      <Link>Areas\Veli\Veli\Controllers\HikayeÖzetiController.cs</Link>
-    </Compile>
-    <Compile Include="..\Desktop\Veli\Controllers\ÖdevController.cs">
-      <Link>Areas\Veli\Veli\Controllers\ÖdevController.cs</Link>
-    </Compile>
-  </ItemGroup>
 
 </Project>

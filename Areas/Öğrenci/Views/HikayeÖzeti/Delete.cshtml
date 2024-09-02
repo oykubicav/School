@@ -1,0 +1,131 @@
+@model TestIdentityApp.Data.Models.HikayeÖzeti
+
+@{
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/style.css">
+    <title>Delete Hikaye Özeti | Ludiflex</title>
+    <style>
+        .delete-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .delete-header {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #c0392b; /* Red color to signify warning */
+            text-align: center;
+        }
+
+        .delete-message {
+            font-size: 1.2rem;
+            color: #34495e;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .details-box {
+            margin-bottom: 25px;
+            text-align: left;
+            width: 100%;
+            max-width: 700px;
+        }
+
+        .details-box label {
+            font-size: 1.3rem;
+            color: #34495e;
+        }
+
+        .details-box p {
+            font-size: 1.2rem;
+            padding: 10px;
+            border: 2px solid #2980b9;
+            border-radius: 10px;
+            background-color: #ecf0f1;
+        }
+
+        .submit-btn {
+            padding: 15px 50px;
+            background-color: #c0392b; /* Red background for delete button */
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.3rem;
+            cursor: pointer;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .submit-btn:hover {
+            background-color: #e74c3c;
+        }
+
+        .cancel-btn {
+            padding: 15px 50px;
+            background-color: #2980b9;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.3rem;
+            cursor: pointer;
+            margin-top: 20px;
+            margin-left: 20px;
+            text-align: center;
+        }
+
+        .cancel-btn:hover {
+            background-color: #3498db;
+        }
+
+        body {
+            margin-top: 150px; /* Adjust this value to match the height of your navbar */
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="delete-container">
+        <header class="delete-header">Hikaye Özeti Sil</header>
+
+        <div class="delete-message">
+            <p>Bu hikaye özetini silmek istediğinize emin misiniz?</p>
+        </div>
+
+        <div class="details-box">
+            <label>Hikaye Adı:</label>
+            <p>@Model.HikayeAdı</p>
+        </div>
+
+        <div class="details-box">
+            <label>Özet:</label>
+            <p>@Model.Özet</p>
+        </div>
+
+        <form asp-action="Delete" method="post">
+            <div class="button-group">
+                <button type="submit" class="submit-btn">Sil</button>
+                <a asp-action="Index" class="cancel-btn">Vazgeç</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

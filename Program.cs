@@ -71,7 +71,11 @@ app.MapRazorPages();
 app.MapAreaControllerRoute(
     name: "ÖğretmenArea",
     areaName: "Öğretmen",
-    pattern: "Öğretmen/{controller=HikayeÖzeti}/{action=Create}/{id?}");
+    pattern: "Öğretmen/{controller=HikayeÖzeti}/{action=Index}/{id?}");
+app.MapAreaControllerRoute(
+    name: "ÖğrenciArea",
+    areaName: "Öğrenci",
+    pattern: "Öğrenci/{controller=HikayeÖzeti}/{action=Create}/{id?}");
 
 app.MapControllerRoute(
     name: "default",

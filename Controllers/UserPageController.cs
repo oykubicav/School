@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using TestIdentityApp.Data.Models;
 using TestIdentityApp.Data.Repository.IRepository;
+using TestIdentityApp.Models;
 
 namespace TestIdentityApp.Controllers;
 
@@ -31,10 +32,12 @@ public class UserPageController : Controller
         var roles = await _userManager.GetRolesAsync(user);
 
         List<HikayeÖzeti> hikayeOzetleri = new List<HikayeÖzeti>();
+        List<Öğrenci> Öğrenciler = new List<Öğrenci>();
 
         if (roles.Contains("Öğretmen"))
         {
             hikayeOzetleri = _unitOfWork.HikayeÖzeti.GetAll().ToList();
+            Öğrenciler = _unitOfWork.Öğrenci.GetAll().ToList();
         }
         else if (roles.Contains("Öğrenci"))
         {

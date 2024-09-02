@@ -51,6 +51,7 @@ namespace TestIdentityApp.Areas.Identity.Pages.Account
             {
                 return RedirectToPage("/Index");
             }
+
             returnUrl = returnUrl ?? Url.Content("~/");
 
             var user = await _userManager.FindByEmailAsync(email);
@@ -76,5 +77,29 @@ namespace TestIdentityApp.Areas.Identity.Pages.Account
 
             return Page();
         }
+        public async Task<IActionResult> OnGetConfirmEmailAsync(string userId, string code, string returnUrl = null)
+        {
+            if (userId == null || code == null)
+            {
+                return RedirectToPage("/Index");
+            }
+
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null)
+            {
+                return NotFound($"Unable to load user with ID '{userId}'.");
+            }
+
+            code = Encoding.UTF8.GetString(WebEncoders.Base64UrlDecode(code));
+            var result = await _userManager.ConfirmEmailAsync(user, code);
+            if (!result.Succeeded)
+            {
+                return NotFound("Error confirming your email.");
+            }
+
+            TempData["Message"] = "Email confirmed successfully. Please log in.";
+            return RedirectToPage("/Account/Login", new { area = "Identity" });
+        }
+
     }
 }
