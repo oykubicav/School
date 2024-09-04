@@ -129,8 +129,10 @@
             else if (Model.Roles.Contains("Öğretmen"))
             {
                 <a href="@Url.Action("Index", "HikayeÖzeti", new { area = "Öğretmen" })" class="btn btn-primary">Devamını Oku</a>
-                
+                <a href="@Url.Action("SelectYıldızÖğrenci", "YıldızÖğrenci", new { area = "Öğretmen" })" class="btn btn-primary">Yıldız Öğrenci Seç</a>
+                <a href="@Url.Action("Create", "Ödev", new { area = "Öğretmen" })" class="btn btn-primary">Ödev Oluştur</a>
             }
+
             else if (Model.Roles.Contains("Veli"))
             {
                 <a href="/Parent/Index" class="btn btn-primary">My Kid's Stories</a>

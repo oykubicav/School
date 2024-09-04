@@ -140,7 +140,8 @@
             <ul>
                 <li><a href="#">Ana Menü</a></li>
                 <li><a href="#">Hikayeler</a></li>
-                <li><a href="#">Ödevler</a></li>
+                <li><a href="@Url.Action("Index", "Ödev", new { area = "Öğretmen" })">Ödevler</a></li>
+
             </ul>
         </nav>
         @if (!User.Identity.IsAuthenticated)
@@ -153,7 +154,8 @@
         else
         {
             <div class="header-icons">
-                <a href="@Url.Action("Settings", "Account")" title="Settings">
+                
+                    <a href="/Identity/Account/Logout" title="Settings">
                     <i class="fas fa-cog"></i>
                 </a>
                 <a href="@Url.Action("Profile", "UserPage")" title="Profile">

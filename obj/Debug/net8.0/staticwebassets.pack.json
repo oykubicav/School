@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets/TestIdentityApp.bundle.scp.css"
     },
     {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/01918180-0008-4d26-9b6e-6022094209810^n_1^n.jpeg",
+      "PackagePath": "staticwebassets/Images/01918180-0008-4d26-9b6e-6022094209810^n_1^n.jpeg"
+    },
+    {
       "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/149b9127-77cc-4721-8679-eacf15d4ff69black-2-slot-toaster.jpg",
       "PackagePath": "staticwebassets/Images/149b9127-77cc-4721-8679-eacf15d4ff69black-2-slot-toaster.jpg"
     },

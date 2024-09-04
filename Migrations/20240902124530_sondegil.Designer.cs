@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using TestIdentityApp.Data;
@@ -11,9 +12,11 @@ using TestIdentityApp.Data;
 namespace TestIdentityApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240902124530_sondegil")]
+    partial class sondegil
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -397,9 +400,6 @@ namespace TestIdentityApp.Migrations
                     b.Property<int?>("DersId")
                         .HasColumnType("integer");
 
-                    b.Property<string>("HomeworkFilePath")
-                        .HasColumnType("text");
-
                     b.Property<DateTime?>("Tarih")
                         .HasColumnType("timestamp with time zone");
 
@@ -432,20 +432,22 @@ namespace TestIdentityApp.Migrations
 
             modelBuilder.Entity("TestIdentityApp.Models.YıldızÖğrenci", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int?>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int?>("Id"));
 
                     b.Property<DateTime?>("Hafta")
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("ÖğrenciId")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("ÖğretmenId")
+                        .HasColumnType("text");
+
+                    b.Property<string>("öğrenciadsoyad")
                         .HasColumnType("text");
 
                     b.HasKey("Id");
@@ -620,9 +622,7 @@ namespace TestIdentityApp.Migrations
                 {
                     b.HasOne("TestIdentityApp.Data.Models.Öğrenci", null)
                         .WithMany("YıldızÖğrenciler")
-                        .HasForeignKey("ÖğrenciId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ÖğrenciId");
 
                     b.HasOne("TestIdentityApp.Data.Models.Öğretmen", null)
                         .WithMany("YıldızÖğrenciler")

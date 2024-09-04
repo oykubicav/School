@@ -1,0 +1,126 @@
+@model List<TestIdentityApp.Data.Models.Ödev>
+@{
+    Layout = "_Layout";
+}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Ödevler | Ludiflex</title>
+    <style>
+        body {
+            background-color: rgba(245, 242, 235, 255);
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Container for the entire content */
+        .contain {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
+            margin-top: 50px;
+            width: 100%;
+            max-width: 1200px;
+            overflow-y: auto; /* Allows scrolling if there are too many stories */
+        }
+
+        /* Style for the card */
+        .hikaye-card {
+            border: 2px solid #2980b9;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            padding: 20px;
+            width: 90%; /* Increase the width of the card */
+            max-width: 1000px; /* Ensure it doesn't get too wide */
+        }
+
+        /* Title style */
+        .card-title {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        /* Text style */
+        .card-text {
+            color: #34495e;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        /* Button style */
+        .btn-primary {
+            background-color: #2980b9;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-right: 10px;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background-color: #3498db;
+        }
+
+        /* Title styling */
+        h2.text-primary {
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-align: center;
+            width: 100%;
+        }
+
+        /* Additional styling for the page */
+        .row {
+            width: 100%;
+        }
+
+        .col-12 {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<div class="contain">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="text-primary">Public Hikayeler</h2>
+        </div>
+    </div>
+
+    @foreach (var obj in Model)
+    {
+    <div class="card mb-4 hikaye-card">
+        <div class="card-body">
+            <h5 class="card-title">@obj.Başlık</h5>
+            <p class="card-text">
+                <strong>İçerik:</strong> @obj.İçerik <br />
+                <strong>Tarih:</strong> @((obj.Tarih.HasValue) ? obj.Tarih.Value.ToString("yyyy-MM-dd") : "Tarih yok")
+
+
+                @if (!string.IsNullOrEmpty(obj.HomeworkFilePath))
+                {
+                <strong>Dosya:</strong>
+                <a href="@Url.Content(obj.HomeworkFilePath)" target="_blank">Dosyayı İndir</a>
+                }
+            </p>
+            <a href="@Url.Action("Edit", "Ödev", new { area = "Öğretmen", id = obj.Id })" class="btn btn-primary">Düzenle</a>
+        </div>
+    </div>
+    }
+
+
+</div>
+</body>

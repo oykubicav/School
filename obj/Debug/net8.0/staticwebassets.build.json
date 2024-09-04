@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "erowbEJA2XL5if6wmE9ajuP49kxa9LdlgcHFR9LcD4g=",
+  "Hash": "x7KIYRpb/DcpzAkZthU3+72TDOIQXHKuttw+Os0cn2U=",
   "Source": "TestIdentityApp",
   "BasePath": "_content/TestIdentityApp",
   "Mode": "Default",
@@ -1250,6 +1250,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/favicon.ico"
+    },
+    {
+      "Identity": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/01918180-0008-4d26-9b6e-6022094209810^n_1^n.jpeg",
+      "SourceId": "TestIdentityApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/oykubicav/TestIdentityApp/wwwroot/",
+      "BasePath": "_content/TestIdentityApp",
+      "RelativePath": "Images/01918180-0008-4d26-9b6e-6022094209810^n_1^n.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/Images/01918180-0008-4d26-9b6e-6022094209810^n_1^n.jpeg"
     },
     {
       "Identity": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/149b9127-77cc-4721-8679-eacf15d4ff69black-2-slot-toaster.jpg",

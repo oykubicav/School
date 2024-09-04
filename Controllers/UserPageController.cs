@@ -28,7 +28,7 @@ public class UserPageController : Controller
         {
             return NotFound();
         }
-
+        var students = await _userManager.GetUsersInRoleAsync("Öğrenci");
         var roles = await _userManager.GetRolesAsync(user);
 
         List<HikayeÖzeti> hikayeOzetleri = new List<HikayeÖzeti>();

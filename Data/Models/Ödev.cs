@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace TestIdentityApp.Data.Models;
 
 public class Ödev
@@ -7,7 +9,10 @@ public class Ödev
     public string? İçerik { get; set; }
     public DateTime? Tarih { get; set; }
     public int? ÖğretmenId { get; set; }
-   
+    
+    public string? HomeworkFilePath { get; set; } 
+    [NotMapped]
+    public IFormFile HomeworkFile { get; set; }
     public int? DersId { get; set; }
     public ICollection<Öğrenci>? SorumluÖğrenciler { get; set; }
 }
