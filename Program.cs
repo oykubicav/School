@@ -19,7 +19,11 @@ var connectionString = builder.Configuration.GetConnectionString("ApplicationDbC
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(connectionString));
 
-builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+    {
+        options.SignIn.RequireConfirmedAccount = true; // Require confirmed email to login
+      
+    })
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultTokenProviders();
 builder.Services.Configure<FormOptions>(options =>
@@ -76,6 +80,12 @@ app.MapAreaControllerRoute(
     name: "ÖğrenciArea",
     areaName: "Öğrenci",
     pattern: "Öğrenci/{controller=HikayeÖzeti}/{action=Create}/{id?}");
+app.MapAreaControllerRoute(
+    name: "VeliArea",
+    areaName: "Veli",
+    pattern: "Veli/{controller=HikayeÖzeti}/{action=Index}/{id?}");
+
+
 
 app.MapControllerRoute(
     name: "default",

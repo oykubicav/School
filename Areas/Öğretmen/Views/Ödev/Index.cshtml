@@ -42,6 +42,23 @@
             width: 90%; /* Increase the width of the card */
             max-width: 1000px; /* Ensure it doesn't get too wide */
         }
+        .btn {
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-right: 10px;
+            display: inline-block;
+            width: 150px; /* Same width for both buttons */
+            height: 45px; /* Same height for both buttons */
+            text-align: center;
+            line-height: 25px; /* Align text vertically */
+        }
+
+        .button-container {
+            display: flex;
+            gap: 10px; /* Space between the buttons */
+        }
 
         /* Title style */
         .card-title {
@@ -96,7 +113,7 @@
 <div class="contain">
     <div class="row">
         <div class="col-12">
-            <h2 class="text-primary">Public Hikayeler</h2>
+            <h2 class="text-primary">Ödevler</h2>
         </div>
     </div>
 
@@ -112,12 +129,28 @@
 
                 @if (!string.IsNullOrEmpty(obj.HomeworkFilePath))
                 {
-                <strong>Dosya:</strong>
-                <a href="@Url.Content(obj.HomeworkFilePath)" target="_blank">Dosyayı İndir</a>
+                    var files = obj.HomeworkFilePath.Split(',');
+                    foreach (var file in files)
+                    {
+                        <strong>Dosya:</strong>
+                        <a href="@Url.Content(file)" target="_blank">Dosyayı İndir</a><br />
+                    }
                 }
+
             </p>
-            <a href="@Url.Action("Edit", "Ödev", new { area = "Öğretmen", id = obj.Id })" class="btn btn-primary">Düzenle</a>
-        </div>
+            
+            
+            @if (User.IsInRole("Öğretmen"))
+            {<div class="button-container">
+                    <a href="@Url.Action("Edit", "Ödev", new { area = "Öğretmen", id = obj.Id })" class="btn btn-primary">Düzenle</a>
+                    <form action="/Öğretmen/Ödev/Delete/@obj.Id" method="post">
+                        <input name="__RequestVerificationToken" type="hidden" value="...anti-forgery-token-value...">
+                        <button type="submit" class="btn  has-before">Sil</button>
+                    </form>
+            </div>
+                    }
+                </div>
+              
     </div>
     }
 

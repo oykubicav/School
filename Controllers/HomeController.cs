@@ -47,7 +47,10 @@ public class HomeController : Controller
             return View();
         }
 
-    
+    public IActionResult Blog()
+    {
+        return View(); // This will render blog.cshtml from the Views/Home folder
+    }
 
     public IActionResult Privacy()
     {

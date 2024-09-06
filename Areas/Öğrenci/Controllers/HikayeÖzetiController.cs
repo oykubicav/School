@@ -130,25 +130,10 @@ namespace TestIdentityApp.Areas.Öğrenci.Controllers
         }
 
         // GET: HikayeÖzeti/Delete/{id}
-        public IActionResult Delete(int? id)
-        {
-            if (id == null || id == 0)
-            {
-                return NotFound();
-            }
-
-            HikayeÖzeti hikayeÖzeti = _unitOfWork.HikayeÖzeti.Get(h => h.Id == id);
-            if (hikayeÖzeti == null)
-            {
-                return NotFound();
-            }
-
-            return View(hikayeÖzeti);
-        }
-
+      
         // POST: HikayeÖzeti/Delete/{id}
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
+      
         public IActionResult DeletePost(int? id)
         {
             if (id == null)

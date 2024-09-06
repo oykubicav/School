@@ -11,11 +11,13 @@ public class UserPageController : Controller
 {
     private readonly UserManager<ApplicationUser> _userManager;
     private readonly IUnitOfWork _unitOfWork;
+    private readonly IWebHostEnvironment _webHostEnvironment;
 
-    public UserPageController(UserManager<ApplicationUser> userManager, IUnitOfWork unitOfWork)
+    public UserPageController(UserManager<ApplicationUser> userManager, IUnitOfWork unitOfWork, IWebHostEnvironment webHostEnvironment)
     {
         _userManager = userManager;
         _unitOfWork = unitOfWork;
+        _webHostEnvironment = webHostEnvironment;
     }
 
     // GET
@@ -33,6 +35,7 @@ public class UserPageController : Controller
 
         List<HikayeÖzeti> hikayeOzetleri = new List<HikayeÖzeti>();
         List<Öğrenci> Öğrenciler = new List<Öğrenci>();
+        
 
         if (roles.Contains("Öğretmen"))
         {
@@ -65,4 +68,45 @@ public class UserPageController : Controller
 
         return View(model);
     }
+
+    [HttpPost]
+    public async Task<IActionResult> ChangeProfilePhoto(IFormFile ProfileImage)
+    {
+        if (ProfileImage != null)
+        {
+            var user = await _userManager.GetUserAsync(User);
+            string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "Images");
+            if (!Directory.Exists(uploadsFolder))
+            {
+                Directory.CreateDirectory(uploadsFolder);
+            }
+
+            string uniqueFileName = Guid.NewGuid().ToString() + ProfileImage.FileName;
+            string relativePath = "/images/" + uniqueFileName;
+
+            string imagePath = Path.Combine(uploadsFolder, uniqueFileName);
+            using (var fileStream = new FileStream(imagePath, FileMode.Create))
+            {
+                ProfileImage.CopyTo(fileStream);
+            }
+
+            user.ImageUrl = relativePath;
+            await _userManager.UpdateAsync(user);
+            return RedirectToAction("Profile");
+        }
+        return RedirectToAction("Profile"); 
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> RemoveProfilePhoto()
+    {
+        var user = await _userManager.GetUserAsync(User);
+        user.ImageUrl = null;
+        await _userManager.UpdateAsync(user);
+        return RedirectToAction("Profile");
+    }
+
+
+
+
 }

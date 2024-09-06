@@ -11,6 +11,7 @@ public class UnitOfWork : IUnitOfWork
     public IDers Ders { get; private set; }
     public IÖğretmen Öğretmen { get; private set; }
     public IÖğrenci Öğrenci { get; private set; }
+    public IDersIcerik DersIcerik { get; private set; }
     
 
     public UnitOfWork(ApplicationDbContext context)
@@ -23,6 +24,7 @@ public class UnitOfWork : IUnitOfWork
         Ders = new DersRepository(_context);
         Öğretmen = new ÖğretmenRepository(_context);
         Öğrenci = new ÖğrenciRepository(_context);
+        DersIcerik = new DersIcerikRepository(_context);
 
     }
 

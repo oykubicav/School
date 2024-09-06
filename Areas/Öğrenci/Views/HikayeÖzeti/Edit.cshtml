@@ -27,6 +27,7 @@
             flex-direction: column;
             height: 100vh;
             padding: 0;
+            padding-top: 70px;
             max-width: 800px;
             margin: 0 auto;
         }
@@ -70,44 +71,27 @@
             border-radius: 10px;
         }
 
-        .btn {
-            padding: 10px 20px;
-            font-size: 1.2rem;
-            border-radius: 5px;
-            text-decoration: none;
-            margin-bottom: 20px;
-            display: inline-block;
-            text-align: center;
-            cursor: pointer;
-            border: none;
-        }
 
-        .btn-secondary {
-            background-color: #95a5a6;
-            color: #fff;
-            width: 150px;
-        }
 
-        .btn-secondary:hover {
-            background-color: #7f8c8d;
-        }
+
 
         .submit-btn {
-            background-color: #2980b9;
+            padding: 15px 50px;
+            background-color: var(--kappel);
             color: #fff;
-            width: 150px; /* Ensure both buttons have the same width */
+            border: none;
+            border-radius: 10px;
+            font-size: 1.3rem;
+            cursor: pointer;
+            width: 400px;
+            max-width: 400px;
+            margin-top: 20px;
+            text-align: center;
         }
 
         .submit-btn:hover {
             background-color: #3498db;
-        }
-
-        .button-container {
-            display: flex;
-            justify-content: flex-start;
-            gap: 10px; /* Ensures space between buttons */
-        }
-
+        } 
         .text-danger {
             color: red;
         }
@@ -144,9 +128,8 @@
                 <span asp-validation-for="Özet" class="text-danger"></span>
             </div>
 
-            <div class="button-container">
+            <div class="input-box">
                 <button type="submit" class="submit-btn">Kaydet</button>
-                <a asp-action="Index" class="btn btn-secondary">Geri Dön</a>
             </div>
 
         </form>

@@ -3,28 +3,42 @@
     Layout = "_Layout";
 }
 
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="~/css/style.css">
+    
     <title>Edit @Model.HikayeAdı | Ludiflex</title>
     <style>
-        /* Container for the entire content */
-        .container {
-            padding-top: 150px; /* Adjust this value to match the layout of other pages */
+        body {
+            background-color: rgba(245, 242, 235, 255);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .create-container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            padding: 0;
+            padding-top: 70px;
             max-width: 800px;
-            margin: 0 auto; /* Center horizontally */
+            margin: 0 auto;
         }
 
-        /* Title style */
-        .edit-title {
+        .create-header {
             font-size: 2.5rem;
+            margin-bottom: 30px;
             color: #2c3e50;
-            margin-bottom: 20px;
+            text-align: center;
         }
 
-        /* Input box styles */
         .input-box {
             width: 100%;
             max-width: 700px;
@@ -38,21 +52,35 @@
             color: #34495e;
         }
 
-        .text-area, .form-control {
-            width: 100%;
-            padding: 15px;
+        .text-area {
+          
+            width: 400px;
+            height: 400px;
+            padding: 20px;
             font-size: 1.2rem;
             border: 3px solid #2980b9;
             border-radius: 10px;
             resize: none;
         }
 
-        .btn-primary {
-            background-color: #2980b9;
-            color: #fff;
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            font-size: 1.2rem;
+            border: 3px solid #2980b9;
             border-radius: 10px;
+        }
+
+
+
+
+
+        .submit-btn {
             padding: 15px 50px;
-            text-decoration: none;
+            background-color: var(--kappel);
+            color: #fff;
+            border: none;
+            border-radius: 10px;
             font-size: 1.3rem;
             cursor: pointer;
             width: 400px;
@@ -61,55 +89,50 @@
             text-align: center;
         }
 
-        .btn-primary:hover {
+        .submit-btn:hover {
             background-color: #3498db;
-        }
-
-        .btn-secondary {
-            background-color: #95a5a6;
-            color: #fff;
-            border-radius: 10px;
-            padding: 10px 20px;
-            text-decoration: none;
-            font-size: 1.2rem;
-            cursor: pointer;
-            margin-right: 10px;
-        }
-
-        .btn-secondary:hover {
-            background-color: #7f8c8d;
-        }
-
+        } 
         .text-danger {
             color: red;
         }
+
+  
+
+        .small-input {
+            width: 100%;
+            padding: 10px;
+            font-size: 1.2rem;
+            border: 3px solid #2980b9;
+            border-radius: 10px;
+        }
+
+       
     </style>
 </head>
 <body>
-<div class="container">
-    <h1 class="edit-title">Edit @Model.HikayeAdı</h1>
+    <div class="create-container">
+        <header class="create-header">Düzenle</header> <!-- Same styling as the Create page header -->
 
-    <form asp-action="Edit" method="post">
-       
-        <div class="input-box">
-            <label asp-for="Özet">Özet</label>
-            <textarea asp-for="Özet" class="text-area" required>@Model.Özet</textarea>
-            <span asp-validation-for="Özet" class="text-danger"></span>
-        </div>
+        <form asp-controller="HikayeÖzeti" asp-action="Edit" method="post">
+            <input type="hidden" asp-for="Id" />
 
-        <div class="input-box">
-            <label asp-for="Tarih">Tarih</label>
-            <input asp-for="Tarih" class="form-control" type="date" required>
-            <span asp-validation-for="Tarih" class="text-danger"></span>
-        </div>
+            <div class="input-box">
+                <label asp-for="HikayeAdı">Başlık</label>
+                <input asp-for="HikayeAdı" class="small-input" id="HikayeAdı" name="HikayeAdı" required />
+                <span asp-validation-for="HikayeAdı" class="text-danger"></span>
+            </div>
 
-        <div class="input-box">
-            <button type="submit" class="btn btn-primary">Kaydet</button>
-            <a asp-action="Index" class="btn btn-secondary">Geri Dön</a>
-        </div>
-        
-    </form>
-    
-</div>
+            <div class="input-box">
+                <label asp-for="Özet">Özet</label>
+                <textarea asp-for="Özet" class="text-area" id="Özet" name="Özet" required>@Model.Özet</textarea>
+                <span asp-validation-for="Özet" class="text-danger"></span>
+            </div>
+
+            <div class="input-box">
+                <button type="submit" class="submit-btn">Kaydet</button>
+            </div>
+
+        </form>
+    </div>
 </body>
-
+</html>

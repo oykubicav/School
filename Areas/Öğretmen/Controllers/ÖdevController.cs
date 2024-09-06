@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using TestIdentityApp.Data;
@@ -16,12 +17,16 @@ public class ÖdevController : Controller
     private readonly IUnitOfWork _unitOfWork;
     private readonly ApplicationDbContext _context;
     private readonly IWebHostEnvironment _webHostEnvironment;
+    private readonly UserManager<ApplicationUser> _userManager;
+    private readonly RoleManager<IdentityRole> _roleManager;
 
-    public ÖdevController(IUnitOfWork unitOfWork, IWebHostEnvironment webHostEnvironment, ApplicationDbContext context)
+    public ÖdevController(IUnitOfWork unitOfWork, IWebHostEnvironment webHostEnvironment, ApplicationDbContext context, UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
     {
         _unitOfWork = unitOfWork;
         _webHostEnvironment = webHostEnvironment;
         _context = context;
+        _userManager = userManager;
+        _roleManager = roleManager;
     }
 
     // GET
@@ -32,35 +37,50 @@ public class ÖdevController : Controller
     }
 
     [HttpPost]
-    public IActionResult Create(IFormFile HomeworkFile, Ödev ödev, DateTime Hafta)
+    public IActionResult Create(IEnumerable<IFormFile> HomeworkFile, Ödev ödev, DateTime Hafta)
     {
-        if (ödev.HomeworkFile != null)
+        if (HomeworkFile != null && HomeworkFile.Any())
         {
-
-            string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "Images");
-            if (!Directory.Exists(uploadsFolder))
+            foreach (var file in HomeworkFile)
             {
-                Directory.CreateDirectory(uploadsFolder);
+                string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "Images");
+                if (!Directory.Exists(uploadsFolder))
+                {
+                    Directory.CreateDirectory(uploadsFolder);
+                }
+
+                string uniqueFileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
+                string relativePath = "/Images/" + uniqueFileName;
+
+                string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    file.CopyTo(fileStream);
+                }
+
+                // You can append file paths to a list or concatenate if needed
+                // Assuming you store file paths as a comma-separated string in HomeworkFilePath for now
+                if (string.IsNullOrEmpty(ödev.HomeworkFilePath))
+                {
+                    ödev.HomeworkFilePath = relativePath;
+                }
+                else
+                {
+                    ödev.HomeworkFilePath += "," + relativePath; // Append to existing file paths
+                }
             }
-
-            string uniqueFileName = Guid.NewGuid().ToString() + ödev.HomeworkFile.FileName;
-            string relativePath = "/Images/" + uniqueFileName;
-
-            string filePath = Path.Combine(uploadsFolder, uniqueFileName);
-            using (var fileStream = new FileStream(filePath, FileMode.Create))
-            {
-                ödev.HomeworkFile.CopyTo(fileStream);
-            }
-
-            ödev.HomeworkFilePath = relativePath;
-
         }
+
+        // Handle other properties
         Hafta = DateTime.SpecifyKind(Hafta.Date, DateTimeKind.Local); // Treat as local date
         ödev.Tarih = Hafta.ToUniversalTime(); 
+
         _unitOfWork.Ödev.Add(ödev);
         _unitOfWork.Save();
-        return View();
+    
+        return View(); 
     }
+
     // GET
     public IActionResult Index(){
         var expiredHomeworks = _unitOfWork.Ödev.GetAll()
@@ -98,24 +118,34 @@ public class ÖdevController : Controller
         return View(ödev); // Pass the Ödev object to the view
     }
 
-    [HttpPost]
-    public IActionResult Edit(IFormFile HomeworkFile, Ödev ödev, bool DeleteExistingFile, DateTime Hafta)
+   [HttpPost]
+public IActionResult Edit(IEnumerable<IFormFile> HomeworkFile, Ödev ödev, string[] DeleteFiles, DateTime Hafta)
+{
+    var existingÖdev = _unitOfWork.Ödev.Get(o => o.Id == ödev.Id); // Get the existing Ödev object
+    
+    // Handle file deletions (if any files are marked for deletion)
+    if (DeleteFiles != null && DeleteFiles.Length > 0)
     {
-        var existingÖdev = _unitOfWork.Ödev.Get(o => o.Id == ödev.Id); // Get the existing Ödev object
-
-        // Handle file deletion if requested
-        if (DeleteExistingFile && !string.IsNullOrEmpty(existingÖdev.HomeworkFilePath))
+        foreach (var file in DeleteFiles)
         {
-            var filePath = Path.Combine(_webHostEnvironment.WebRootPath, existingÖdev.HomeworkFilePath.TrimStart('/'));
+            var filePath = Path.Combine(_webHostEnvironment.WebRootPath, file.TrimStart('/'));
             if (System.IO.File.Exists(filePath))
             {
                 System.IO.File.Delete(filePath);
             }
-            existingÖdev.HomeworkFilePath = null; // Clear the file path
         }
+        
+        // Remove deleted files from the HomeworkFilePath string
+        var remainingFiles = existingÖdev.HomeworkFilePath.Split(',')
+                            .Where(f => !DeleteFiles.Contains(f))
+                            .ToArray();
+        existingÖdev.HomeworkFilePath = string.Join(",", remainingFiles);
+    }
 
-        // Handle file upload (if a new file is uploaded)
-        if (HomeworkFile != null)
+    // Handle file uploads (if any new files are uploaded)
+    if (HomeworkFile != null && HomeworkFile.Any())
+    {
+        foreach (var file in HomeworkFile)
         {
             string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "Images");
             if (!Directory.Exists(uploadsFolder))
@@ -123,29 +153,58 @@ public class ÖdevController : Controller
                 Directory.CreateDirectory(uploadsFolder);
             }
 
-            string uniqueFileName = Guid.NewGuid().ToString() + Path.GetExtension(HomeworkFile.FileName);
+            string uniqueFileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
             string relativePath = "/Images/" + uniqueFileName;
 
             string filePath = Path.Combine(uploadsFolder, uniqueFileName);
             using (var fileStream = new FileStream(filePath, FileMode.Create))
             {
-                HomeworkFile.CopyTo(fileStream);
+                file.CopyTo(fileStream);
             }
 
-            existingÖdev.HomeworkFilePath = relativePath; // Update the file path
+            // Append new files to HomeworkFilePath
+            if (string.IsNullOrEmpty(existingÖdev.HomeworkFilePath))
+            {
+                existingÖdev.HomeworkFilePath = relativePath;
+            }
+            else
+            {
+                existingÖdev.HomeworkFilePath += "," + relativePath;
+            }
         }
-
-        // Update other fields
-        existingÖdev.Başlık = ödev.Başlık;
-        existingÖdev.İçerik = ödev.İçerik;
-        Hafta = DateTime.SpecifyKind(Hafta.Date, DateTimeKind.Local); // Local time
-        existingÖdev.Tarih = Hafta.ToUniversalTime();
-
-        // Save the changes
-        _unitOfWork.Ödev.Update(existingÖdev);
-        _unitOfWork.Save();
-
-        return RedirectToAction("Index");
     }
+
+    // Update other fields
+    existingÖdev.Başlık = ödev.Başlık;
+    existingÖdev.İçerik = ödev.İçerik;
+    Hafta = DateTime.SpecifyKind(Hafta.Date, DateTimeKind.Local); // Local time
+    existingÖdev.Tarih = Hafta.ToUniversalTime();
+
+    // Save the changes
+    _unitOfWork.Ödev.Update(existingÖdev);
+    _unitOfWork.Save();
+
+    return RedirectToAction("Index");
+}
+[HttpPost, ActionName("Delete")]
+   
+public IActionResult DeletePost(int? id)
+{
+    if (id == null || id == 0)
+    {
+        return NotFound();
+    }
+
+    Ödev ödevtodelete = _unitOfWork.Ödev.Get(d => d.Id == id);
+    if (ödevtodelete == null)
+    {
+        return NotFound();
+    }
+
+    _unitOfWork.Ödev.Remove(ödevtodelete);
+    _unitOfWork.Save();
+    return RedirectToAction("Index");
+}
+
 
 }

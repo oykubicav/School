@@ -46,31 +46,55 @@
         /* Title style */
         .card-title {
             color: #2c3e50;
-            font-size: 1.8rem;
+            font-size: 3rem;
+            font-weight: bold;
             margin-bottom: 15px;
         }
 
         /* Text style */
         .card-text {
             color: #34495e;
-            font-size: 1.2rem;
+            font-size: 2rem;
             margin-bottom: 20px;
         }
 
+        /* Flex container for buttons */
+        .button-container {
+            display: flex;
+            gap: 10px; /* Add space between buttons */
+        }
+
         /* Button style */
-        .btn-primary {
-            background-color: #2980b9;
-            color: #fff;
+        .btn {
             padding: 10px 20px;
             font-size: 1.2rem;
             border-radius: 5px;
             text-decoration: none;
-            margin-right: 10px;
             display: inline-block;
+            width: 150px;   /* Ensures all buttons have the same width */
+            height: 45px;   /* Ensures all buttons have the same height */
+            text-align: center;
+            line-height: 25px; /* Align text vertically */
+        }
+
+        .btn-primary {
+            background-color: #2980b9;
+            color: #fff;
         }
 
         .btn-primary:hover {
             background-color: #3498db;
+        }
+
+        .btn-danger {
+            background-color: #e74c3c;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-danger:hover {
+            background-color: #c0392b;
         }
 
         /* Title styling */
@@ -96,7 +120,7 @@
 <div class="contain">
     <div class="row">
         <div class="col-12">
-            <h2 class="text-primary">Public Hikayeler</h2>
+            <h2 class="text-primary">Hikayelerim</h2>
         </div>
     </div>
 
@@ -121,8 +145,15 @@
                         @: @obj.Özet
                     }
                 </p>
-                <a href="@Url.Action("Details", "HikayeÖzeti", new { area = "Öğrenci", id = @obj.Id })" class="btn btn-primary">Devamını Oku</a> 
-                <a href="@Url.Action("Edit", "HikayeÖzeti", new { area = "Öğrenci", id = @obj.Id })" class="btn btn-primary">Düzenle</a>
+                
+                <div class="button-container">
+                    <a href="@Url.Action("Details", "HikayeÖzeti", new { area = "Öğrenci", id = @obj.Id })" class="btn has-before">Devamını Oku</a> 
+                    <a href="@Url.Action("Edit", "HikayeÖzeti", new { area = "Öğrenci", id = @obj.Id })" class="btn btn-primary">Düzenle</a>
+                    <form action="/Öğrenci/HikayeÖzeti/Delete/@obj.Id" method="post">
+                        <input name="__RequestVerificationToken" type="hidden" value="...anti-forgery-token-value...">
+                        <button type="submit" class="btn btn-danger">Sil</button>
+                    </form>
+                </div>
             </div>
         </div>
     }

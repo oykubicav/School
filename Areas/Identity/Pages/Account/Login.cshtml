@@ -15,7 +15,7 @@
             background-color: rgba(245,242,235,255);  /* Background color, adjust as needed */
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items:flex-start;
             min-height: 100vh;
             margin: 0;
             padding-bottom: 0px;
@@ -26,11 +26,14 @@
 
         .login-box {
             background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
-            padding: 20px;
+            padding: 30px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             width: 400px; /* Adjusted to make the box wider */
             max-width: 90%;
+            margin-top: 110px;
+            padding: 60px 20px;
+            min-height: 600px;
         }
 
         .login-header header {
@@ -46,7 +49,7 @@
 
         .input-field {
             width: 100%; /* Full width of the box */
-            padding: 15px; /* Adjusted padding for a more substantial input box */
+            padding: 10px; /* Adjusted padding for a more substantial input box */
             border: 1px solid #ccc;
             border-radius: 5px;
             font-size: 1.2em; /* Slightly larger font size for better readability */
@@ -86,6 +89,12 @@
         .sign-up-link a {
             color: var(--kappel);
             text-decoration: none;
+        }
+        .text-danger {
+            display: block;
+            min-height: 1.5em; /* Reserve space even when there's no error */
+            margin-top: 5px;
+            font-size: 0.9em;
         }
 
         .container {

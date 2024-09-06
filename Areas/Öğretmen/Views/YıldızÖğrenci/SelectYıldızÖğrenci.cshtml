@@ -1,25 +1,113 @@
 @{
-    ViewBag.Title = "Seç Yıldız Öğrenci";
+    ViewBag.Title = "Yıldız Öğrenci Seç";
 }
 
-<h2>@ViewBag.Title</h2>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>@ViewBag.Title</title>
+    <style>
+        body {
+            background-color: rgba(245, 242, 235, 255);  /* Same background as other pages */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<form asp-action="SelectYıldızÖğrenci" method="post">
-    <div class="form-group">
-        <label for="SelectedÖğrenciId">Öğrenci</label>
-        <select name="selectedÖğrenciId" class="form-control">
-            @foreach (var item in (IEnumerable<SelectListItem>)ViewBag.Öğrenciler)
-            {
-                <option value="@item.Value">@item.Text</option>
-            }
-        </select>
-        <span asp-validation-for="SelectedÖğrenciId" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label for="Hafta">Hafta</label>
-        <input name="Hafta" class="form-control" type="date" value="@ViewBag.Hafta" />
-        <span asp-validation-for="Hafta" class="text-danger"></span>
-    </div>
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 20px;
+            margin-top: 50px;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-    <button type="submit" class="btn btn-primary">Seç</button>
-</form>
+        h2 {
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        label {
+            font-size: 1.4rem;
+            color: #34495e;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            font-size: 1.2rem;
+            border: 2px solid #2980b9;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .text-danger {
+            color: red;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            font-size: 1.4rem;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 20px;
+            display: inline-block;
+            background-color: #2980b9;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+
+        .btn:hover {
+            background-color: #3498db;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-container">
+        <h2>@ViewBag.Title</h2>
+
+        <form asp-action="SelectYıldızÖğrenci" method="post">
+            <div class="form-group">
+                <label for="SelectedÖğrenciId">Öğrenci</label>
+                <select name="selectedÖğrenciId" class="form-control">
+                    @foreach (var item in (IEnumerable<SelectListItem>)ViewBag.Öğrenciler)
+                    {
+                        <option value="@item.Value">@item.Text</option>
+                    }
+                </select>
+                <span asp-validation-for="SelectedÖğrenciId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="Hafta">Tarih</label>
+                <input name="Hafta" class="form-control" type="date" value="@ViewBag.Hafta" />
+                <span asp-validation-for="Hafta" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Seç</button>
+        </form>
+    </div>
+</body>

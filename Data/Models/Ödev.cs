@@ -12,7 +12,7 @@ public class Ödev
     
     public string? HomeworkFilePath { get; set; } 
     [NotMapped]
-    public IFormFile HomeworkFile { get; set; }
+    public IEnumerable<IFormFile>? HomeworkFile { get; set; } 
     public int? DersId { get; set; }
     public ICollection<Öğrenci>? SorumluÖğrenciler { get; set; }
 }

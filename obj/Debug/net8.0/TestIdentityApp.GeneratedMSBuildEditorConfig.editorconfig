@@ -190,12 +190,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/oykubicav/TestIdentityApp/Areas/Öğrenci/Views/HikayeÖzeti/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvw5bEn3JlbmNpL1ZpZXdzL0hpa2F5ZcOWemV0aS9DcmVhdGUuY3NodG1s
+[/Users/oykubicav/TestIdentityApp/Areas/Veli/Views/HikayeÖzeti/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvVmVsaS9WaWV3cy9IaWtheWXDlnpldGkvRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/oykubicav/TestIdentityApp/Areas/Öğrenci/Views/HikayeÖzeti/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvw5bEn3JlbmNpL1ZpZXdzL0hpa2F5ZcOWemV0aS9EZWxldGUuY3NodG1s
+[/Users/oykubicav/TestIdentityApp/Areas/Veli/Views/HikayeÖzeti/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvVmVsaS9WaWV3cy9IaWtheWXDlnpldGkvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/oykubicav/TestIdentityApp/Areas/Öğrenci/Views/HikayeÖzeti/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvw5bEn3JlbmNpL1ZpZXdzL0hpa2F5ZcOWemV0aS9DcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/oykubicav/TestIdentityApp/Areas/Öğrenci/Views/HikayeÖzeti/Details.cshtml]
@@ -208,6 +212,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [/Users/oykubicav/TestIdentityApp/Areas/Öğrenci/Views/HikayeÖzeti/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvw5bEn3JlbmNpL1ZpZXdzL0hpa2F5ZcOWemV0aS9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/oykubicav/TestIdentityApp/Areas/Öğretmen/Views/DersIcerik/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvw5bEn3JldG1lbi9WaWV3cy9EZXJzSWNlcmlrL0NyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/oykubicav/TestIdentityApp/Areas/Öğretmen/Views/DersIcerik/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvw5bEn3JldG1lbi9WaWV3cy9EZXJzSWNlcmlrL0luZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/oykubicav/TestIdentityApp/Areas/Öğretmen/Views/HikayeÖzeti/Details.cshtml]
@@ -236,6 +248,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [/Users/oykubicav/TestIdentityApp/Areas/Öğretmen/Views/Ödev/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvw5bEn3JldG1lbi9WaWV3cy/DlmRldi9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/oykubicav/TestIdentityApp/Views/Home/blog.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9ibG9nLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/oykubicav/TestIdentityApp/Views/Home/Index.cshtml]

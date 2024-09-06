@@ -24,6 +24,7 @@ namespace TestIdentityApp.Data
 
         public DbSet<Ödev> Ödevler { get; set; }
         public DbSet<HikayeÖzeti> HikayeÖzetleri { get; set; }
+        public DbSet<DersIcerik> DersIcerikler { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -5,43 +5,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   
-
-    
-
     <link rel="stylesheet" href="~/css/style.css">
     <title>Register | Ludiflex</title>
     <style>
         body {
-            background-color: rgba(245,242,235,255);  /* Background color, adjust as needed */
+            background-color: rgba(245,242,235,255); 
             display: flex;
             justify-content: center;
-            align-items: flex-start;  /* Align items to the top */
+            align-items: flex-start;
             min-height: 100vh;
             margin: 0;
-            padding-bottom: 0px;
-            padding-left: 0px;
-            padding-right: 0px;
+            padding: 0;
             box-sizing: border-box;
         }
 
         .register-box {
-            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+            background-color: rgba(255, 255, 255, 0.8); 
             padding: 5px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 500px; /* Wider box */
+            width: 500px;
             max-width: 90%;
-            margin-top: 110px;  /* Add a margin at the top to create space between the box and the header */
-        }
-
-        .register-header header {
-            font-size: 1.5em;
-            margin-bottom: 20px;
-            color: #333; /* Darker text color */
-            text-align: center;
+            margin-top: 110px;
         }
 
         .input-box {
@@ -70,16 +56,12 @@
             border: 2px solid #ccc;
         }
 
-        .profile-icon:hover {
-            border-color: var(--kappel);
-        }
-
         .input-submit {
             text-align: center;
         }
 
         .submit-btn {
-            background-color: var(--kappel); /* Button color */
+            background-color: var(--kappel);
             color: white;
             border: none;
             padding: 10px 20px;
@@ -98,15 +80,6 @@
             text-decoration: none;
         }
 
-        .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-      
-
-        /* Flexbox for side by side inputs */
         .flex-row {
             display: flex;
             justify-content: space-between;
@@ -114,33 +87,36 @@
         }
 
         .flex-row .input-box {
-            flex: 1; /* Make the input boxes take equal space */
+            flex: 1;
+        }
+
+        /* Hide file input */
+        #profileImageInput {
+            display: none;
         }
     </style>
 </head>
 <body>
 <div class="register-box">
-  
-    <input type="hidden" asp-for="Input.Role"/>
     <form id="registerForm" method="post" enctype="multipart/form-data">
         <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
         <input type="hidden" asp-for="Input.Role" />
+
+        <!-- Profile Image Upload with Default Icon -->
         <div class="form-group">
             <label for="profileImageInput">
-                <img src="~/Images/default-profile.png" alt="Profile Icon" class="profile-icon" id="profileIcon">
+                <img src="~/Images/profile.png" alt="Profile Icon" class="profile-icon" id="profileIcon">
             </label>
-            <input asp-for="Input.ProfileImage" class="form-control" type="file" id="profileImageInput" style="display: none;" />
+            <input asp-for="Input.ProfileImage" class="form-control" type="file" id="profileImageInput" />
             <span asp-validation-for="Input.ProfileImage" class="text-danger"></span>
         </div>
 
-        <!-- Profile Image Upload with Default Icon -->
-      
         <!-- Email -->
         <div class="input-box">
             <input asp-for="Input.Email" class="input-field" placeholder="Email" autocomplete="username" required>
             <span asp-validation-for="Input.Email" class="text-danger"></span>
         </div>
-        <!-- Profile Image Upload -->
+
         <!-- Name and Surname side by side -->
         <div class="flex-row">
             <div class="input-box">
@@ -159,17 +135,17 @@
             <input asp-for="Input.PhoneNumber" class="input-field" placeholder="Telefon" required>
             <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
         </div>
+
         @if (Model.Input.Role == "Veli")
         {
             <div class="input-box">
                 <select asp-for="Input.SelectedÖğrencilerIds" asp-items="Model.Input.ÖğrencilerList" class="input-field" multiple>
                     <option disabled selected value="">Öğrenciler</option>
-                    <!-- The rest of the options will be rendered here by the asp-items attribute -->
                 </select>
                 <span asp-validation-for="Input.SelectedÖğrencilerIds" class="text-danger"></span>
             </div>
-
         }
+
         <!-- Password and Confirm Password side by side -->
         <div class="flex-row">
             <div class="input-box">
@@ -187,28 +163,43 @@
             <button type="submit" class="submit-btn" id="registerSubmit">Kayıt Ol</button>
         </div>
     </form>
+
     <div class="sign-up-link">
         <p>Hesabın Var Mı? <a asp-page="./Login" asp-route-returnUrl="@Model.ReturnUrl">Giriş Yap</a></p>
     </div>
 </div>
 
 @section Scripts {
-    <partial name="_ValidationScriptsPartial"/>
-<script>
-    document.getElementById("profileIcon").addEventListener("click", function() {
-        document.getElementById("profileImageInput").click();
-    });
+<partial name="_ValidationScriptsPartial"/>
 
-    document.getElementById("profileImageInput").addEventListener("change", function(event) {
-        const [file] = this.files;
-        if (file) {
-            document.getElementById("profileIcon").src = URL.createObjectURL(file);
-        }
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        let formSubmitted = false;
+
+        // When clicking the profile icon, trigger file input
+        document.getElementById("profileIcon").addEventListener("click", function() {
+            const profileImageInput = document.getElementById("profileImageInput");
+            profileImageInput.click();
+        });
+
+        // Update the image preview when a new file is selected
+        document.getElementById("profileImageInput").addEventListener("change", function(event) {
+            const [file] = this.files;
+            if (file) {
+                document.getElementById("profileIcon").src = URL.createObjectURL(file);
+            }
+        });
+
+        // Disable the form from submitting multiple times
+        document.getElementById("registerSubmit").addEventListener("click", function(event) {
+            if (formSubmitted) {
+                event.preventDefault();
+            } else {
+                formSubmitted = true;
+            }
+        });
     });
 </script>
-
 }
-
-
 </body>
 </html>

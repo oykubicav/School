@@ -15,36 +15,32 @@
     <style>
 
         body {
-            background-color: rgba(245,242,235,255);  /* Background color, adjust as needed */
+            background-color: rgba(245,242,235,255);  
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             margin: 0;
-            padding-bottom: 0px;
-            padding-left: 0px;
-            padding-right: 0px;
             box-sizing: border-box;
         }
-        
-        
 
         .profile-box {
-            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+            background-color: rgba(255, 255, 255, 0.8); 
             margin-top: 100px;
             padding: 10px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 600px; /* Wider box */
+            width: 1000px; 
+            height: 800px;
             max-width: 90%;
-            text-align: center; /* Center align the text */
+            text-align: center; 
         }
 
-        .profile-header {
-            font-size: 1.5em;
-            margin-bottom: 20px;
-            color: #333; /* Darker text color */
-            text-align: center;
+        .profile-image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
         }
 
         .profile-image {
@@ -53,102 +49,145 @@
             border-radius: 50%;
             border: 3px solid #2980b9;
             margin-bottom: 20px;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
         }
 
-        .profile-info {
-            margin-bottom: 20px;
-            color: #34495e;
+        /* Buttons placed next to profile image */
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            position: absolute;
+            left: 180px; /* Adjust position to the right of the image */
+            top: 30px; /* Align with the image */
         }
 
-        .profile-info h1 {
-            font-size: 2.5rem;
-            color: #2c3e50;
-            margin-bottom: 10px;
-        }
-
-        .profile-info p {
+        .btn {
+            background-color: white;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            color: #333;
+            padding: 10px 20px;
             font-size: 1.2rem;
+            cursor: pointer;
+            display: inline-block;
+            transition: background-color 0.3s, border-color 0.3s;
         }
 
-        .section {
-            margin-bottom: 30px;
-            text-align: left; /* Align section text to the left */
-        }
-
-        .section h2 {
-            font-size: 1.8rem;
-            color: #2c3e50;
-            margin-bottom: 10px;
-        }
-
-        .section p {
-            font-size: 1.2rem;
-            color: #34495e;
+        .btn:hover {
+            background-color: #f0f0f0;
+            border-color: #888;
         }
 
         .btn-primary {
-            background-color: #2980b9;
-            color: #fff;
-            border-radius: 10px;
-            padding: 10px 20px;
-            text-decoration: none;
-            font-size: 1.2rem;
-            cursor: pointer;
-            margin-top: 20px;
-            display: inline-block;
+            background-color: white;
+            border: 2px solid #2980b9;
+            color: #2980b9;
         }
 
         .btn-primary:hover {
-            background-color: #3498db;
+            background-color: #2980b9;
+            color: white;
         }
-        .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+
+        .btn-danger {
+            background-color: white;
+            border: 2px solid #e74c3c;
+            color: #e74c3c;
         }
+h1{
+    margin-bottom: 20px;}
+        .btn-danger:hover {
+            background-color: #e74c3c;
+            color: white;
+        }
+
+        /* Hide file input */
+        #profile-image-upload {
+            display: none;
+        }
+        
+        /* Tooltip Styling */
+        .btn[title] {
+            position: relative;
+        }
+
+        .btn[title]:hover::after {
+            content: attr(title);  /* Tooltip content */
+            position: absolute;
+            top: -40px; /* Position above the button */
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            z-index: 100;
+        }
+
     </style>
 </head>
 <body>
-<div class="profile-box">
-    <div class="profile-header">
-        <img src="@Url.Content(Model.User.ImageUrl ?? "/images/profiles/default.png")"
-             alt="@Model.User.UserName"
-             class="profile-image">
+    <div class="profile-box">
+        <div class="profile-image-container">
+            <img src="@Url.Content(Model.User.ImageUrl ?? "/Images/profile.png")"
+                 alt="@Model.User.UserName"
+                 class="profile-image">
+
+            <!-- Change Photo and Remove Photo Buttons next to profile image -->
+            <div class="button-group">
+                <!-- Change Photo Button -->
+                <form asp-action="ChangeProfilePhoto" method="post" enctype="multipart/form-data">
+                    <input type="file" name="ProfileImage" id="profile-image-upload" accept="image/*" />
+                    <button type="button" class="btn btn-primary" onclick="document.getElementById('profile-image-upload').click();" title="Fotoğrafı Değiştir">
+                        Fotoğrafı Değiştir
+                    </button>
+                </form>
+
+                <!-- Remove Photo Button -->
+                <form asp-action="RemoveProfilePhoto" method="post">
+                    <button type="submit" class="btn btn-danger" title="Fotoğrafı Kaldır">Fotoğrafı Kaldır</button>
+                </form>
+            </div>
+        </div>
+
         <div class="profile-info">
             <h1>@Model.User.Ad</h1>
-            <p><strong>Email:</strong> @Model.User.Email</p>
-            <p><strong>Phone:</strong> @Model.User.PhoneNumber</p>
+
             @if (Model.Roles.Contains("Öğrenci"))
             {
                 <a href="@Url.Action("Index", "HikayeÖzeti", new { area = "Öğrenci" })" class="btn btn-primary">Hikayelerim</a>
-            
+                <a href="@Url.Action("Index", "Ödev", new { area = "Öğretmen" })" class="btn btn-primary">Ödevlerim</a>
             }
             else if (Model.Roles.Contains("Öğretmen"))
             {
                 <a href="@Url.Action("Index", "HikayeÖzeti", new { area = "Öğretmen" })" class="btn btn-primary">Devamını Oku</a>
                 <a href="@Url.Action("SelectYıldızÖğrenci", "YıldızÖğrenci", new { area = "Öğretmen" })" class="btn btn-primary">Yıldız Öğrenci Seç</a>
                 <a href="@Url.Action("Create", "Ödev", new { area = "Öğretmen" })" class="btn btn-primary">Ödev Oluştur</a>
+                <a href="@Url.Action("Create", "DersIcerik", new { area = "Öğretmen" })" class="btn btn-primary">Ders İçeriği Ekle</a>
             }
-
             else if (Model.Roles.Contains("Veli"))
             {
-                <a href="/Parent/Index" class="btn btn-primary">My Kid's Stories</a>
+                <a href="@Url.Action("Index", "HikayeÖzeti", new { area = "Veli" })" class="btn btn-primary">Çocuğumun Hikayeleri</a>
+                <a href="@Url.Action("Index", "Ödev", new { area = "Öğretmen" })" class="btn btn-primary">Çocuğumun Ödevleri</a> 
             }
         </div>
-    </div>
 
-    <div class="profile-content">
-        <div class="section">
-            <h2>Contact Information</h2>
-            <p><strong>Phone:</strong> @Model.User.PhoneNumber</p>
-            <p><strong>Email:</strong> @Model.User.Email</p>
+        <div class="profile-content">
+            <div class="section">
+                <h2>İletişim Bilgileri</h2>
+                <p><strong>Telefon no:</strong> @Model.User.PhoneNumber</p>
+                <p><strong>Email:</strong> @Model.User.Email</p>
+            </div>
         </div>
-        
-
     </div>
-</div>
+
+    <script>
+        // Ensure the form is submitted when the file input is changed
+        document.getElementById("profile-image-upload").onchange = function () {
+            this.form.submit();
+        };
+    </script>
 </body>
 </html>

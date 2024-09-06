@@ -8,7 +8,7 @@ public interface IUnitOfWork
     IDers Ders { get; }
     IÖğretmen Öğretmen { get; }
     IÖğrenci Öğrenci { get; }
-    
+    IDersIcerik DersIcerik { get; }
 
     void Save();
 }

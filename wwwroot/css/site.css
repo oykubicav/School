@@ -679,6 +679,8 @@ body {
 \*-----------------------------------*/
 
 .stats-card {
+  width: 345px; /* Fixed width for all cards */
+  height: 160px;
   text-align: center;
   padding: 25px;
   border-radius: var(--radius-10);

@@ -359,6 +359,31 @@ namespace TestIdentityApp.Migrations
                         });
                 });
 
+            modelBuilder.Entity("TestIdentityApp.Data.Models.DersIcerik", b =>
+                {
+                    b.Property<int?>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int?>("Id"));
+
+                    b.Property<string>("DersAdi")
+                        .HasColumnType("text");
+
+                    b.Property<int?>("DersId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("IcerikFileePath")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Konu")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("DersIcerikler");
+                });
+
             modelBuilder.Entity("TestIdentityApp.Data.Models.HikayeÖzeti", b =>
                 {
                     b.Property<int?>("Id")
