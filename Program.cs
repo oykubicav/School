@@ -55,7 +55,10 @@ app.UseForwardedHeaders(new ForwardedHeadersOptions
 {
     ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
 });
-
+if (app.Environment.IsDevelopment())
+{
+    app.UseDeveloperExceptionPage(); // Ensure this is enabled
+}
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
