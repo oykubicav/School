@@ -12,8 +12,8 @@ using TestIdentityApp.Data;
 namespace TestIdentityApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240902115348_ol")]
-    partial class ol
+    [Migration("20240907114358_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -362,6 +362,31 @@ namespace TestIdentityApp.Migrations
                         });
                 });
 
+            modelBuilder.Entity("TestIdentityApp.Data.Models.DersIcerik", b =>
+                {
+                    b.Property<int?>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int?>("Id"));
+
+                    b.Property<string>("DersAdi")
+                        .HasColumnType("text");
+
+                    b.Property<int?>("DersId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("IcerikFileePath")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Konu")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("DersIcerikler");
+                });
+
             modelBuilder.Entity("TestIdentityApp.Data.Models.HikayeÖzeti", b =>
                 {
                     b.Property<int?>("Id")
@@ -400,6 +425,9 @@ namespace TestIdentityApp.Migrations
                     b.Property<int?>("DersId")
                         .HasColumnType("integer");
 
+                    b.Property<string>("HomeworkFilePath")
+                        .HasColumnType("text");
+
                     b.Property<DateTime?>("Tarih")
                         .HasColumnType("timestamp with time zone");
 
@@ -432,19 +460,17 @@ namespace TestIdentityApp.Migrations
 
             modelBuilder.Entity("TestIdentityApp.Models.YıldızÖğrenci", b =>
                 {
-                    b.Property<int?>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int?>("Id"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime?>("Hafta")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<int?>("ÖğrenciId")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("ÖğrenciId1")
+                    b.Property<string>("ÖğrenciId")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("ÖğretmenId")
@@ -452,7 +478,7 @@ namespace TestIdentityApp.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ÖğrenciId1");
+                    b.HasIndex("ÖğrenciId");
 
                     b.HasIndex("ÖğretmenId");
 
@@ -620,15 +646,15 @@ namespace TestIdentityApp.Migrations
 
             modelBuilder.Entity("TestIdentityApp.Models.YıldızÖğrenci", b =>
                 {
-                    b.HasOne("TestIdentityApp.Data.Models.Öğrenci", "Öğrenci")
+                    b.HasOne("TestIdentityApp.Data.Models.Öğrenci", null)
                         .WithMany("YıldızÖğrenciler")
-                        .HasForeignKey("ÖğrenciId1");
+                        .HasForeignKey("ÖğrenciId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("TestIdentityApp.Data.Models.Öğretmen", null)
                         .WithMany("YıldızÖğrenciler")
                         .HasForeignKey("ÖğretmenId");
-
-                    b.Navigation("Öğrenci");
                 });
 
             modelBuilder.Entity("ÖdevÖğrenci", b =>

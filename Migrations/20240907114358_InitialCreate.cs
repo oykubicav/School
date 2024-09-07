@@ -9,7 +9,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace TestIdentityApp.Migrations
 {
     /// <inheritdoc />
-    public partial class Initial : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -76,6 +76,22 @@ namespace TestIdentityApp.Migrations
                         column: x => x.ÖğretmenId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "DersIcerikler",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    DersId = table.Column<int>(type: "integer", nullable: true),
+                    DersAdi = table.Column<string>(type: "text", nullable: true),
+                    Konu = table.Column<string>(type: "text", nullable: true),
+                    IcerikFileePath = table.Column<string>(type: "text", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DersIcerikler", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -231,20 +247,19 @@ namespace TestIdentityApp.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    ÖğrenciId = table.Column<string>(type: "text", nullable: false),
                     Hafta = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
-                    ÖğrenciId = table.Column<int>(type: "integer", nullable: true),
-                    ÖğrenciId1 = table.Column<string>(type: "text", nullable: true),
-                    ImageUrl = table.Column<string>(type: "text", nullable: false),
                     ÖğretmenId = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_YıldızÖğrenciler", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_YıldızÖğrenciler_AspNetUsers_ÖğrenciId1",
-                        column: x => x.ÖğrenciId1,
+                        name: "FK_YıldızÖğrenciler_AspNetUsers_ÖğrenciId",
+                        column: x => x.ÖğrenciId,
                         principalTable: "AspNetUsers",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_YıldızÖğrenciler_AspNetUsers_ÖğretmenId",
                         column: x => x.ÖğretmenId,
@@ -286,6 +301,7 @@ namespace TestIdentityApp.Migrations
                     İçerik = table.Column<string>(type: "text", nullable: true),
                     Tarih = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
                     ÖğretmenId = table.Column<int>(type: "integer", nullable: true),
+                    HomeworkFilePath = table.Column<string>(type: "text", nullable: true),
                     DersId = table.Column<int>(type: "integer", nullable: true),
                     ÖğretmenId1 = table.Column<string>(type: "text", nullable: true)
                 },
@@ -348,8 +364,8 @@ namespace TestIdentityApp.Migrations
 
             migrationBuilder.InsertData(
                 table: "Ödevler",
-                columns: new[] { "Id", "Başlık", "DersId", "Tarih", "ÖğretmenId", "ÖğretmenId1", "İçerik" },
-                values: new object[] { 1, "Öykü", 1, null, null, null, "oyku" });
+                columns: new[] { "Id", "Başlık", "DersId", "HomeworkFilePath", "Tarih", "ÖğretmenId", "ÖğretmenId1", "İçerik" },
+                values: new object[] { 1, "Öykü", 1, null, null, null, null, "oyku" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -434,9 +450,9 @@ namespace TestIdentityApp.Migrations
                 column: "ÖdevlerId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_YıldızÖğrenciler_ÖğrenciId1",
+                name: "IX_YıldızÖğrenciler_ÖğrenciId",
                 table: "YıldızÖğrenciler",
-                column: "ÖğrenciId1");
+                column: "ÖğrenciId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_YıldızÖğrenciler_ÖğretmenId",
@@ -461,6 +477,9 @@ namespace TestIdentityApp.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "DersIcerikler");
 
             migrationBuilder.DropTable(
                 name: "DersÖğrenci");
