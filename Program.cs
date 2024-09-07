@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Http.Features;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -18,6 +19,7 @@ var connectionString = builder.Configuration.GetConnectionString("ApplicationDbC
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(connectionString));
+
 
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
     {
@@ -44,16 +46,15 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
 });
 var app = builder.Build();
-if (app.Environment.IsDevelopment())
-{
-    app.UseDeveloperExceptionPage();  // Enable detailed error pages
-}
-else
-{
-    app.UseExceptionHandler("/Home/Error");  // Fallback error handler for production
-    app.UseHsts();
-}
 
+// Remove UseHttpsRedirection
+// app.UseHttpsRedirection(); // This is handled by NGINX
+
+// Add UseForwardedHeaders for reverse proxy
+app.UseForwardedHeaders(new ForwardedHeadersOptions
+{
+    ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+});
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -62,10 +63,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-
-app.UseHttpsRedirection();
 app.UseStaticFiles();
-
 app.UseRouting();
 
 app.UseAuthentication();
@@ -84,8 +82,6 @@ app.MapAreaControllerRoute(
     name: "VeliArea",
     areaName: "Veli",
     pattern: "Veli/{controller=HikayeÖzeti}/{action=Index}/{id?}");
-
-
 
 app.MapControllerRoute(
     name: "default",

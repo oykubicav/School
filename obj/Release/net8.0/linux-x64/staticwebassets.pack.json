@@ -1,0 +1,505 @@
+{
+  "Files": [
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/obj/Release/net8.0/linux-x64/scopedcss/projectbundle/TestIdentityApp.bundle.scp.css",
+      "PackagePath": "staticwebassets/TestIdentityApp.bundle.scp.css"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/01918180-0008-4d26-9b6e-6022094209810^n_1^n.jpeg",
+      "PackagePath": "staticwebassets/Images/01918180-0008-4d26-9b6e-6022094209810^n_1^n.jpeg"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/1268a479-bfc6-46b2-be09-7750aa957faff63db1da-fc35-456a-9b77-ab1022c76603 2.JPG",
+      "PackagePath": "staticwebassets/Images/1268a479-bfc6-46b2-be09-7750aa957faff63db1da-fc35-456a-9b77-ab1022c76603 2.JPG"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/149b9127-77cc-4721-8679-eacf15d4ff69black-2-slot-toaster.jpg",
+      "PackagePath": "staticwebassets/Images/149b9127-77cc-4721-8679-eacf15d4ff69black-2-slot-toaster.jpg"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/160a263f-28bb-4747-a5f6-f08bf18f0ef1bathroom-rug.jpg",
+      "PackagePath": "staticwebassets/Images/160a263f-28bb-4747-a5f6-f08bf18f0ef1bathroom-rug.jpg"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/1a986590-f182-4709-81f6-f6d1c758bc26athletic-cotton-socks-6-pairs.jpg",
+      "PackagePath": "staticwebassets/Images/1a986590-f182-4709-81f6-f6d1c758bc26athletic-cotton-socks-6-pairs.jpg"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/2be4b687-ca75-4630-8942-d08c52be6db4.pdf",
+      "PackagePath": "staticwebassets/Images/2be4b687-ca75-4630-8942-d08c52be6db4.pdf"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/33c684df-adc1-43db-9aa5-896928ba6df1.JPG",
+      "PackagePath": "staticwebassets/Images/33c684df-adc1-43db-9aa5-896928ba6df1.JPG"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/3d7124a2-5e9c-475a-80cc-26370cf0a2df.pdf",
+      "PackagePath": "staticwebassets/Images/3d7124a2-5e9c-475a-80cc-26370cf0a2df.pdf"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/4f3b8903-d930-4d46-a0f9-acd8f6bbd4bf.pdf",
+      "PackagePath": "staticwebassets/Images/4f3b8903-d930-4d46-a0f9-acd8f6bbd4bf.pdf"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/50cecb4a-c10b-4825-9d43-914291915074bathroom-rug.jpg",
+      "PackagePath": "staticwebassets/Images/50cecb4a-c10b-4825-9d43-914291915074bathroom-rug.jpg"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/5d9558fe-815f-4e6c-931f-c5ca817091ffIMG_4762.HEIC",
+      "PackagePath": "staticwebassets/Images/5d9558fe-815f-4e6c-931f-c5ca817091ffIMG_4762.HEIC"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/65937125-7720-4e72-9161-f675709e79bd.jpeg",
+      "PackagePath": "staticwebassets/Images/65937125-7720-4e72-9161-f675709e79bd.jpeg"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/6f2d0d9c-63c5-4aa7-b268-7ec2cda56df7.pdf",
+      "PackagePath": "staticwebassets/Images/6f2d0d9c-63c5-4aa7-b268-7ec2cda56df7.pdf"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/74795719-2568-4f99-95ba-4045f4455872.jpeg",
+      "PackagePath": "staticwebassets/Images/74795719-2568-4f99-95ba-4045f4455872.jpeg"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/852c31ea-b78c-452e-8ac9-33b30a893760adults-plain-cotton-tshirt-2-pack-teal.jpg",
+      "PackagePath": "staticwebassets/Images/852c31ea-b78c-452e-8ac9-33b30a893760adults-plain-cotton-tshirt-2-pack-teal.jpg"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/865ed00b-6480-435d-8e9d-3ca8a89b1786.pdf",
+      "PackagePath": "staticwebassets/Images/865ed00b-6480-435d-8e9d-3ca8a89b1786.pdf"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/95d92e16-761c-42f7-b063-af753a2c3b05double-elongated-twist-french-wire-earrings.webp",
+      "PackagePath": "staticwebassets/Images/95d92e16-761c-42f7-b063-af753a2c3b05double-elongated-twist-french-wire-earrings.webp"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/Thumbs.db",
+      "PackagePath": "staticwebassets/Images/Thumbs.db"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/a33445e2-4808-4e56-a9d9-39779de18575.HEIC",
+      "PackagePath": "staticwebassets/Images/a33445e2-4808-4e56-a9d9-39779de18575.HEIC"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/about-banner.jpg",
+      "PackagePath": "staticwebassets/Images/about-banner.jpg"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/about-shape-1.svg",
+      "PackagePath": "staticwebassets/Images/about-shape-1.svg"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/about-shape-2.svg",
+      "PackagePath": "staticwebassets/Images/about-shape-2.svg"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/about-shape-20.svg",
+      "PackagePath": "staticwebassets/Images/about-shape-20.svg"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/about-shape-21.svg",
+      "PackagePath": "staticwebassets/Images/about-shape-21.svg"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/about-shape-3.png",
+      "PackagePath": "staticwebassets/Images/about-shape-3.png"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/about-shape-4.svg",
+      "PackagePath": "staticwebassets/Images/about-shape-4.svg"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/anaokulu-ilkokul-kitap-16-1024x577.jpeg",
+      "PackagePath": "staticwebassets/Images/anaokulu-ilkokul-kitap-16-1024x577.jpeg"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/bbb27899-a630-4899-b424-1f3c31657f94f63db1da-fc35-456a-9b77-ab1022c76603 2.JPG",
+      "PackagePath": "staticwebassets/Images/bbb27899-a630-4899-b424-1f3c31657f94f63db1da-fc35-456a-9b77-ab1022c76603 2.JPG"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/blog-1.jpg",
+      "PackagePath": "staticwebassets/Images/blog-1.jpg"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/blog-2.jpg",
+      "PackagePath": "staticwebassets/Images/blog-2.jpg"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/blog-3.jpg",
+      "PackagePath": "staticwebassets/Images/blog-3.jpg"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/blog-bg.svg",
+      "PackagePath": "staticwebassets/Images/blog-bg.svg"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/blog-shape.png",
+      "PackagePath": "staticwebassets/Images/blog-shape.png"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/category-1.svg",
+      "PackagePath": "staticwebassets/Images/category-1.svg"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/category-2.svg",
+      "PackagePath": "staticwebassets/Images/category-2.svg"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/category-3.svg",
+      "PackagePath": "staticwebassets/Images/category-3.svg"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/category-4.svg",
+      "PackagePath": "staticwebassets/Images/category-4.svg"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/cd3d2f34-aa0a-4343-8d3f-683cbebd5597.jpeg",
+      "PackagePath": "staticwebassets/Images/cd3d2f34-aa0a-4343-8d3f-683cbebd5597.jpeg"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/course-1.jpg",
+      "PackagePath": "staticwebassets/Images/course-1.jpg"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/course-2.jpg",
+      "PackagePath": "staticwebassets/Images/course-2.jpg"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/course-3.jpg",
+      "PackagePath": "staticwebassets/Images/course-3.jpg"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/d832fd99-698b-4509-b55d-5c52cefb77cd.pdf",
+      "PackagePath": "staticwebassets/Images/d832fd99-698b-4509-b55d-5c52cefb77cd.pdf"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/db7f8a5a-b759-4663-a462-809254b7bd5fjordan2.png",
+      "PackagePath": "staticwebassets/Images/db7f8a5a-b759-4663-a462-809254b7bd5fjordan2.png"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/default-profile.png",
+      "PackagePath": "staticwebassets/Images/default-profile.png"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/footer-bg.png",
+      "PackagePath": "staticwebassets/Images/footer-bg.png"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/hero-banner-1.jpg",
+      "PackagePath": "staticwebassets/Images/hero-banner-1.jpg"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/hero-banner-2.jpg",
+      "PackagePath": "staticwebassets/Images/hero-banner-2.jpg"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/hero-bg.svg",
+      "PackagePath": "staticwebassets/Images/hero-bg.svg"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/hero-shape-2.png",
+      "PackagePath": "staticwebassets/Images/hero-shape-2.png"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/parents.png",
+      "PackagePath": "staticwebassets/Images/parents.png"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/png-default.png",
+      "PackagePath": "staticwebassets/Images/png-default.png"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/profile.png",
+      "PackagePath": "staticwebassets/Images/profile.png"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/students_girl_boy.png",
+      "PackagePath": "staticwebassets/Images/students_girl_boy.png"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/studentstock.jpg",
+      "PackagePath": "staticwebassets/Images/studentstock.jpg"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/teacher.png",
+      "PackagePath": "staticwebassets/Images/teacher.png"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/video-banner.jpg",
+      "PackagePath": "staticwebassets/Images/video-banner.jpg"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/video-bg.png",
+      "PackagePath": "staticwebassets/Images/video-bg.png"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/video-shape-1.png",
+      "PackagePath": "staticwebassets/Images/video-shape-1.png"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/Images/video-shape-2.png",
+      "PackagePath": "staticwebassets/Images/video-shape-2.png"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/css/site.css",
+      "PackagePath": "staticwebassets/css/site.css"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/css/style.css",
+      "PackagePath": "staticwebassets/css/style.css"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/favicon.ico",
+      "PackagePath": "staticwebassets/favicon.ico"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/js/site.js",
+      "PackagePath": "staticwebassets/js/site.js"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/lib/bootstrap/LICENSE",
+      "PackagePath": "staticwebassets/lib/bootstrap"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.css"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.css.map"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.min.css"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.css"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.css"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/lib/bootstrap/dist/css/bootstrap.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.css"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/lib/bootstrap/dist/css/bootstrap.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.css.map"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.min.css"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.min.css.map"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.rtl.css"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.js"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.esm.js"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.esm.js.map"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.esm.min.js"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/lib/bootstrap/dist/js/bootstrap.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.js"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/lib/bootstrap/dist/js/bootstrap.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.js.map"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.min.js"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.min.js.map"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/lib/jquery-validation-unobtrusive/LICENSE.txt",
+      "PackagePath": "staticwebassets/lib/jquery-validation-unobtrusive/LICENSE.txt"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/lib/jquery-validation/LICENSE.md",
+      "PackagePath": "staticwebassets/lib/jquery-validation/LICENSE.md"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/lib/jquery-validation/dist/additional-methods.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/additional-methods.js"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/lib/jquery-validation/dist/additional-methods.min.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/additional-methods.min.js"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/lib/jquery-validation/dist/jquery.validate.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/jquery.validate.js"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/lib/jquery-validation/dist/jquery.validate.min.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/jquery.validate.min.js"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/lib/jquery/LICENSE.txt",
+      "PackagePath": "staticwebassets/lib/jquery/LICENSE.txt"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/lib/jquery/dist/jquery.js",
+      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.js"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/lib/jquery/dist/jquery.min.js",
+      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.min.js"
+    },
+    {
+      "Id": "/Users/oykubicav/TestIdentityApp/wwwroot/lib/jquery/dist/jquery.min.map",
+      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.min.map"
+    },
+    {
+      "Id": "obj/Release/net8.0/linux-x64/staticwebassets/msbuild.TestIdentityApp.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Release/net8.0/linux-x64/staticwebassets/msbuild.build.TestIdentityApp.props",
+      "PackagePath": "build\\TestIdentityApp.props"
+    },
+    {
+      "Id": "obj/Release/net8.0/linux-x64/staticwebassets/msbuild.buildMultiTargeting.TestIdentityApp.props",
+      "PackagePath": "buildMultiTargeting\\TestIdentityApp.props"
+    },
+    {
+      "Id": "obj/Release/net8.0/linux-x64/staticwebassets/msbuild.buildTransitive.TestIdentityApp.props",
+      "PackagePath": "buildTransitive\\TestIdentityApp.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
