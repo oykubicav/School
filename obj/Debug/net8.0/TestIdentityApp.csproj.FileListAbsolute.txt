@@ -291,3 +291,4 @@
 /Users/oykubicav/TestIdentityApp/bin/Debug/net8.0/publish/appsettings.json
 /Users/oykubicav/TestIdentityApp/bin/Debug/net8.0/publish/TestIdentityApp.deps.json
 /Users/oykubicav/TestIdentityApp/bin/Debug/net8.0/publish/TestIdentityApp.runtimeconfig.json
+/Users/oykubicav/TestIdentityApp/bin/Debug/net8.0/System.ClientModel.dll
