@@ -12,8 +12,8 @@ using TestIdentityApp.Data;
 namespace TestIdentityApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240907125241_second")]
-    partial class second
+    [Migration("20240907180954_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
