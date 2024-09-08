@@ -128,12 +128,12 @@
     {
         <div class="card mb-4 hikaye-card">
             <div class="card-body">
-                <h5 class="card-title">@obj.HikayeAdı</h5>
+                <h5 class="card-title">@obj.hikayeÖzeti.HikayeAdı</h5>
                 <p><strong>Öğrenci:</strong> @obj.ÖğrenciName @obj.ÖğrenciSurname</p>
                 <p class="card-text">
-                    @if (obj.Özet.Length > 100)
+                    @if (obj.hikayeÖzeti.Özet.Length > 100)
                     {
-                        var truncatedText = obj.Özet.Substring(0, 100);
+                        var truncatedText = obj.hikayeÖzeti.Özet.Substring(0, 100);
                         var lastSpaceIndex = truncatedText.LastIndexOf(" ");
                         if (lastSpaceIndex > 0)
                         {
@@ -143,13 +143,13 @@
                     }
                     else
                     {
-                        @: @obj.Özet
+                        @: @obj.hikayeÖzeti.Özet
                     }
                 </p>
                 
                 <div class="button-container">
-                    <a href="@Url.Action("Details", "HikayeÖzeti", new { area = "Öğretmen", id = @obj.Id })" class="btn has-before">Devamını Oku</a> 
-                    <a href="@Url.Action("Edit", "HikayeÖzeti", new { area = "Öğretmen", id = @obj.Id })" class="btn btn-primary">Düzenle</a>
+                    <a href="@Url.Action("Details", "HikayeÖzeti", new { area = "Öğretmen", id = @obj.hikayeÖzeti.Id })" class="btn has-before">Devamını Oku</a> 
+                    <a href="@Url.Action("Edit", "HikayeÖzeti", new { area = "Öğretmen", id = @obj.hikayeÖzeti.Id })" class="btn btn-primary">Düzenle</a>
                     
                 </div>
             </div>

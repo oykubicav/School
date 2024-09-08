@@ -23,36 +23,34 @@ namespace TestIdentityApp.Areas.Öğretmen.Controllers
         // GET: HikayeÖzeti/Index
         public async Task<IActionResult> Index()
         {
-            var user = await _userManager.GetUserAsync(User);
-
-            // Fetch the stories for the student
-            var hikayeOzetleri = _unitOfWork.HikayeÖzeti.GetAll(h => h.ÖğrenciId == user.Id).ToList();
-
-            // Create a list of view models
-            List<HikayeÖzetiViewModel> viewModelList = new List<HikayeÖzetiViewModel>();
+            // Fetch all HikayeÖzeti records
+            var hikayeOzetleri = _unitOfWork.HikayeÖzeti.GetAll().ToList();
+    
+            // Initialize a list to hold the view models
+            var hikayeOzetViewModelList = new List<HikayeÖzetiViewModel>();
 
             foreach (var hikaye in hikayeOzetleri)
             {
                 // Fetch the related student (ApplicationUser) by ÖğrenciId
                 var öğrenci = await _userManager.FindByIdAsync(hikaye.ÖğrenciId);
-
-                // Populate the view model with both story and student details
-                var viewModel = new HikayeÖzetiViewModel
+        
+                if (öğrenci != null)
                 {
-                    Id = hikaye.Id,
-                    HikayeAdı = hikaye.HikayeAdı,
-                    Özet = hikaye.Özet,
-                    ÖğrenciName = öğrenci.Ad,
-                    ÖğrenciSurname = öğrenci.Soyad
-                };
+                    // Populate the view model with the HikayeÖzeti and student's name & surname
+                    var viewModel = new HikayeÖzetiViewModel
+                    {
+                        hikayeÖzeti = hikaye,  // Set the HikayeÖzeti object
+                        ÖğrenciName = öğrenci.Ad,  // Assuming ApplicationUser has Name property
+                        ÖğrenciSurname = öğrenci.Soyad  // Assuming ApplicationUser has Surname property
+                    };
 
-                viewModelList.Add(viewModel);
+                    hikayeOzetViewModelList.Add(viewModel);
+                }
             }
 
-            // Pass the view model list to the view
-            return View(viewModelList);
+            // Pass the list of view models to the view
+            return View(hikayeOzetViewModelList);
         }
-
 
         // GET: HikayeÖzeti/Create
       
