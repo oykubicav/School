@@ -10,28 +10,33 @@
     
     <title>Ödevler | Ludiflex</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             background-color: rgba(245, 242, 235, 255);
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 20px; /* Padding for mobile responsiveness */
         }
 
-        /* Container for the entire content */
+        /* Main container for all content */
         .contain {
             display: flex;
-            justify-content: flex-start;
-            align-items: center;
             flex-direction: column;
-            padding: 20px;
-            margin-top: 50px;
+            align-items: center;
             width: 100%;
             max-width: 1200px;
-            overflow-y: auto; /* Allows scrolling if there are too many stories */
+            padding: 20px;
         }
 
-        /* Style for the card */
+        /* Card styling */
         .hikaye-card {
             border: 2px solid #2980b9;
             border-radius: 10px;
@@ -39,73 +44,86 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
             padding: 20px;
-            width: 90%; /* Increase the width of the card */
-            max-width: 1000px; /* Ensure it doesn't get too wide */
+            width: 100%; /* Full width for responsiveness */
+            max-width: 1000px; /* Limit width on larger screens */
         }
+
+        /* Buttons and layout for the buttons */
         .btn {
-            padding: 10px 20px;
+            padding: 10px;
             font-size: 1.2rem;
             border-radius: 5px;
             text-decoration: none;
-            margin-right: 10px;
-            display: inline-block;
-            width: 150px; /* Same width for both buttons */
-            height: 45px; /* Same height for both buttons */
+            width: 150px; /* Same width for buttons */
             text-align: center;
-            line-height: 25px; /* Align text vertically */
+            transition: background-color 0.3s ease;
         }
 
         .button-container {
             display: flex;
-            gap: 10px; /* Space between the buttons */
+            gap: 10px;
         }
 
-        /* Title style */
+        /* Card title */
         .card-title {
             color: #2c3e50;
             font-size: 1.8rem;
             margin-bottom: 15px;
         }
 
-        /* Text style */
+        /* Card text */
         .card-text {
             color: #34495e;
             font-size: 1.2rem;
             margin-bottom: 20px;
         }
 
-        /* Button style */
+        /* Primary button styling */
         .btn-primary {
             background-color: #2980b9;
             color: #fff;
-            padding: 10px 20px;
-            font-size: 1.2rem;
-            border-radius: 5px;
-            text-decoration: none;
-            margin-right: 10px;
-            display: inline-block;
+            border: none;
+            cursor: pointer;
         }
 
         .btn-primary:hover {
             background-color: #3498db;
         }
 
-        /* Title styling */
+        /* Page title */
         h2.text-primary {
             color: #2c3e50;
             font-size: 2.5rem;
             margin-bottom: 30px;
             text-align: center;
-            width: 100%;
         }
 
-        /* Additional styling for the page */
+        /* Full-width container for smaller screens */
         .row {
             width: 100%;
         }
 
         .col-12 {
             width: 100%;
+        }
+
+        form {
+            display: inline;
+        }
+
+        /* Form button */
+        button {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #c0392b;
         }
     </style>
 </head>
@@ -119,13 +137,12 @@
 
     @foreach (var obj in Model)
     {
-    <div class="card mb-4 hikaye-card">
+    <div class="hikaye-card">
         <div class="card-body">
             <h5 class="card-title">@obj.Başlık</h5>
             <p class="card-text">
                 <strong>İçerik:</strong> @obj.İçerik <br />
                 <strong>Tarih:</strong> @((obj.Tarih.HasValue) ? obj.Tarih.Value.ToString("yyyy-MM-dd") : "Tarih yok")
-
 
                 @if (!string.IsNullOrEmpty(obj.HomeworkFilePath))
                 {
@@ -139,21 +156,18 @@
 
             </p>
             
-            
             @if (User.IsInRole("Öğretmen"))
-            {<div class="button-container">
-                    <a href="@Url.Action("Edit", "Ödev", new { area = "Öğretmen", id = obj.Id })" class="btn btn-primary">Düzenle</a>
-                    <form action="/Öğretmen/Ödev/Delete/@obj.Id" method="post">
-                        <input name="__RequestVerificationToken" type="hidden" value="...anti-forgery-token-value...">
-                        <button type="submit" class="btn  has-before">Sil</button>
-                    </form>
+            {
+            <div class="button-container">
+                <a href="@Url.Action("Edit", "Ödev", new { area = "Öğretmen", id = obj.Id })" class="btn btn-primary">Düzenle</a>
+                <form action="/Öğretmen/Ödev/Delete/@obj.Id" method="post">
+                    <input name="__RequestVerificationToken" type="hidden" value="...anti-forgery-token-value...">
+                    <button type="submit" class="btn">Sil</button>
+                </form>
             </div>
-                    }
-                </div>
-              
+            }
+        </div>
     </div>
     }
-
-
 </div>
 </body>

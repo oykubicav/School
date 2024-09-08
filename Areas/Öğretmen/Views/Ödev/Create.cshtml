@@ -1,7 +1,6 @@
 @model TestIdentityApp.Data.Models.Ödev
 @{
-
-Layout = "_Layout";
+    Layout = "_Layout";
 }
 
 <!DOCTYPE html>
@@ -13,85 +12,85 @@ Layout = "_Layout";
     <link rel="stylesheet" href="~/css/style.css">
     <title>Create Ödev | Ludiflex</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            background-color: rgba(245,242,235,255);  /* Background color, adjust as needed */
+            background-color: rgba(245, 242, 235, 255);  /* Background color */
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             margin: 0;
-            padding-bottom: 0px;
-            padding-left: 0px;
-            padding-right: 0px;
-            box-sizing: border-box;
+            padding: 20px;
+            font-family: Arial, sans-serif;
         }
 
         .create-container {
             display: flex;
-          
-         
             flex-direction: column;
-            height: 100vh;
-            padding: 0;
-            max-width: 800px;
-            margin: 0 auto;
+            padding: 20px;
+            width: 90%;  /* Takes up 90% of the screen width */
+            max-width: 600px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .create-header {
-            font-size: 2.5rem;
-            margin-bottom: 30px;
+            font-size: 2rem;
+            margin-bottom: 20px;
             color: #2c3e50;
             text-align: center;
         }
 
         .input-box {
+            margin-bottom: 20px;
             width: 100%;
-            max-width: 700px;
-            margin-bottom: 25px;
         }
 
         .input-box label {
             display: block;
-            font-size: 1.3rem;
-            margin-bottom: 10px;
+            font-size: 1.2rem;
+            margin-bottom: 8px;
             color: #34495e;
         }
 
+        .form-control,
         .text-area {
-            width: 400px;
-            height: 400px;
-            padding: 20px;
-            font-size: 1.2rem;
-            border: 3px solid #2980b9;
-            border-radius: 10px;
+            width: 100%;  /* Full width for input fields */
+            padding: 10px;
+            font-size: 1rem;
+            border: 2px solid #2980b9;
+            border-radius: 8px;
+        }
+
+        .text-area {
+            height: 150px;
             resize: none;
         }
 
-        .form-control {
-            width: 100%;
-            padding: 15px;
-            font-size: 1.2rem;
-            border: 3px solid #2980b9;
-            border-radius: 10px;
-        }
-
         .submit-btn {
-            padding: 15px 50px;
-            background-color: var(--kappel);
+            padding: 12px 20px;
+            background-color: #2980b9;
             color: #fff;
             border: none;
             border-radius: 10px;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             cursor: pointer;
-            width: 400px;
-            max-width: 400px;
-            margin-top: 20px;
+            width: 100%;  /* Full width for submit button */
             text-align: center;
         }
 
         .submit-btn:hover {
             background-color: #3498db;
         }
+
+        .text-danger {
+            color: red;
+        }
+
         body {
             margin-top: 150px; /* Adjust this value to match the height of your navbar */
         }
@@ -103,7 +102,7 @@ Layout = "_Layout";
     <div class="create-container">
         <header class="create-header">Ödev Oluştur</header>
 
-        <form asp-action="Create" method="post" enctype="multipart/form-data">>
+        <form asp-action="Create" method="post" enctype="multipart/form-data">
             <div class="input-box">
                 <label for="Başlık">Ödev Adı</label>
                 <input asp-for="Başlık" class="form-control" id="Başlık" name="Başlık" required>
@@ -116,26 +115,22 @@ Layout = "_Layout";
                 <span asp-validation-for="İçerik" class="text-danger"></span>
             </div>
 
-            <div class="form-group">
-                <label for="Hafta"></label>
+            <div class="input-box">
+                <label for="Hafta">Tarih</label>
                 <input name="Hafta" class="form-control" type="date" value="@ViewBag.Hafta" />
                 <span asp-validation-for="Hafta" class="text-danger"></span>
             </div>
 
-
             <div class="input-box">
-                <label asp-for="HomeworkFile">Ödev Dosyası</label>
-                <input asp-for="HomeworkFile" class="form-control"name="HomeworkFile"id="HomeworkFile" type="file" multiple  />
+                <label for="HomeworkFile">Ödev Dosyası</label>
+                <input asp-for="HomeworkFile" class="form-control" name="HomeworkFile" id="HomeworkFile" type="file" multiple />
                 <span asp-validation-for="HomeworkFile" class="text-danger"></span>
             </div>
 
-                <div class="input-box">
+            <div class="input-box">
                 <button type="submit" class="submit-btn">Kaydet</button>
             </div>
         </form>
-
     </div>
-
-   
 </body>
 </html>

@@ -12,6 +12,10 @@
     
     <title>Edit @Model.HikayeAdı | Ludiflex</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             background-color: rgba(245, 242, 235, 255);
             display: flex;
@@ -19,94 +23,73 @@
             align-items: center;
             min-height: 100vh;
             margin: 0;
-            box-sizing: border-box;
+            font-family: Arial, sans-serif;
         }
 
         .create-container {
             display: flex;
             flex-direction: column;
-            height: 100vh;
-            padding: 0;
-            padding-top: 70px;
-            max-width: 800px;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            width: 100%;
+            max-width: 800px; /* Limits the width on larger screens */
             margin: 0 auto;
         }
 
         .create-header {
-            font-size: 2.5rem;
+            font-size: 2rem;
             margin-bottom: 30px;
             color: #2c3e50;
             text-align: center;
+            width: 100%;
         }
 
         .input-box {
             width: 100%;
-            max-width: 700px;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .input-box label {
             display: block;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             margin-bottom: 10px;
             color: #34495e;
         }
 
+        .text-area, .small-input {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            border: 2px solid #2980b9;
+            border-radius: 8px;
+        }
+
         .text-area {
-          
-            width: 400px;
-            height: 400px;
-            padding: 20px;
-            font-size: 1.2rem;
-            border: 3px solid #2980b9;
-            border-radius: 10px;
+            height: 200px; /* Reduced for better responsiveness */
             resize: none;
         }
 
-        .form-control {
-            width: 100%;
-            padding: 10px;
-            font-size: 1.2rem;
-            border: 3px solid #2980b9;
-            border-radius: 10px;
-        }
-
-
-
-
-
         .submit-btn {
-            padding: 15px 50px;
-            background-color: var(--kappel);
+            padding: 12px;
+            background-color: #2980b9;
             color: #fff;
             border: none;
-            border-radius: 10px;
-            font-size: 1.3rem;
+            border-radius: 8px;
+            font-size: 1.2rem;
             cursor: pointer;
-            width: 400px;
-            max-width: 400px;
-            margin-top: 20px;
+            width: 100%;
             text-align: center;
+            transition: background-color 0.3s ease;
         }
 
         .submit-btn:hover {
             background-color: #3498db;
-        } 
+        }
+
         .text-danger {
             color: red;
         }
-
-  
-
-        .small-input {
-            width: 100%;
-            padding: 10px;
-            font-size: 1.2rem;
-            border: 3px solid #2980b9;
-            border-radius: 10px;
-        }
-
-       
     </style>
 </head>
 <body>

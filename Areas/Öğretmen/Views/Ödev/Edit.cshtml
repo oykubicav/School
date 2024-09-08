@@ -12,6 +12,10 @@
     
     <title>Edit @Model.Başlık | Ludiflex</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             background-color: rgba(245, 242, 235, 255);
             display: flex;
@@ -19,46 +23,44 @@
             align-items: center;
             min-height: 100vh;
             margin: 0;
-            box-sizing: border-box;
+            padding: 0;
+            font-family: Arial, sans-serif;
         }
 
         .create-container {
             display: flex;
             flex-direction: column;
-            height: 100vh;
-            padding: 0;
-            padding-top: 70px;
+            padding: 20px;
+            width: 100%;
             max-width: 800px;
             margin: 0 auto;
         }
 
         .create-header {
-            font-size: 2.5rem;
-            margin-bottom: 30px;
+            font-size: 2rem;
+            margin-bottom: 20px;
             color: #2c3e50;
             text-align: center;
         }
 
         .input-box {
             width: 100%;
-            max-width: 700px;
-            margin-bottom: 25px;
+            margin-bottom: 15px;
         }
 
         .input-box label {
             display: block;
-            font-size: 1.3rem;
-            margin-bottom: 10px;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
             color: #34495e;
         }
 
         .text-area {
-          
-            width: 400px;
-            height: 400px;
-            padding: 20px;
-            font-size: 1.2rem;
-            border: 3px solid #2980b9;
+            width: 100%;
+            height: 200px;
+            padding: 10px;
+            font-size: 1rem;
+            border: 2px solid #2980b9;
             border-radius: 10px;
             resize: none;
         }
@@ -66,47 +68,39 @@
         .form-control {
             width: 100%;
             padding: 10px;
-            font-size: 1.2rem;
-            border: 3px solid #2980b9;
+            font-size: 1rem;
+            border: 2px solid #2980b9;
             border-radius: 10px;
         }
 
-
-
-
-
         .submit-btn {
-            padding: 15px 50px;
-            background-color: var(--kappel);
+            padding: 12px 20px;
+            background-color: #2980b9;
             color: #fff;
             border: none;
             border-radius: 10px;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             cursor: pointer;
-            width: 400px;
-            max-width: 400px;
-            margin-top: 20px;
+            width: 100%;
             text-align: center;
+            margin-top: 20px;
         }
 
         .submit-btn:hover {
             background-color: #3498db;
         } 
+
         .text-danger {
             color: red;
         }
 
-  
-
         .small-input {
             width: 100%;
             padding: 10px;
-            font-size: 1.2rem;
-            border: 3px solid #2980b9;
+            font-size: 1rem;
+            border: 2px solid #2980b9;
             border-radius: 10px;
         }
-
-       
     </style>
 </head>
 <body>
@@ -127,7 +121,8 @@
                 <textarea asp-for="İçerik" class="text-area" id="İçerik" name="İçerik" required>@Model.İçerik</textarea>
                 <span asp-validation-for="İçerik" class="text-danger"></span>
             </div>
-            <div class="form-group">
+
+            <div class="input-box">
                 <label for="Hafta"></label>
                 <input name="Hafta" class="form-control" type="date" value="@ViewBag.Hafta" />
                 <span asp-validation-for="Hafta" class="text-danger"></span>
@@ -138,23 +133,22 @@
 
                 @if (!string.IsNullOrEmpty(Model.HomeworkFilePath))
                 {
-                <!-- Show each existing file with a delete checkbox -->
-                var existingFiles = Model.HomeworkFilePath.Split(',');
-                foreach (var file in existingFiles)
-                {
-                <div>
-                    <strong>Mevcut Dosya:</strong>
-                    <a href="@Url.Content(file)" target="_blank">Mevcut Dosyayı Görüntüle</a>
-                    <input type="checkbox" name="DeleteFiles" value="@file" /> Bu dosyayı sil
-                </div>
-                }
+                    <!-- Show each existing file with a delete checkbox -->
+                    var existingFiles = Model.HomeworkFilePath.Split(',');
+                    foreach (var file in existingFiles)
+                    {
+                    <div>
+                        <strong>Mevcut Dosya:</strong>
+                        <a href="@Url.Content(file)" target="_blank">Mevcut Dosyayı Görüntüle</a>
+                        <input type="checkbox" name="DeleteFiles" value="@file" /> Bu dosyayı sil
+                    </div>
+                    }
                 }
 
                 <!-- Allow uploading multiple new files -->
                 <input name="HomeworkFile" id="HomeworkFile" class="form-control" type="file" multiple />
                 <span asp-validation-for="HomeworkFile" class="text-danger"></span>
             </div>
-
 
             <div class="input-box">
                 <button type="submit" class="submit-btn">Kaydet</button>

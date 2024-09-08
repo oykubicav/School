@@ -1,48 +1,47 @@
-﻿@page
-@model RegisterConfirmationModel
-@{
-    ViewData["Title"] = "Register confirmation";
-}
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="~/css/style.css?v=@DateTime.Now.Ticks">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/style.css?v=@DateTime.Now.Ticks">
 
     <title>Register Confirmation | Ludiflex</title>
     <style>
-        bodyx {
-            background-color: rgba(245,242,235,255);  /* Background color */
+        /* Outer body for full-page background */
+        body.bodyx {
+            background-color: rgba(245, 242, 235, 1); /* Outer background color */
+            margin: 0;
+            padding: 0;
+            height: 100vh;
             display: flex;
             justify-content: center;
-            align-items: center;  /* Center content horizontally and vertically */
-            height: 100vh;  /* Full height of the viewport */
-            margin: 0;
+            align-items: center;
             box-sizing: border-box;
         }
 
+        /* Inner container */
         .confirmation-container {
-            text-align: center; /* Center text */
-            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
-            padding: 30px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+            padding: 5%;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
-            margin: 0 20px; /* Prevent the container from touching the edges on smaller screens */
+            max-width: 60%; /* Use percentage-based width for responsiveness */
+            margin: 20px;
+            width: 90%; /* Ensure it's responsive on smaller screens */
         }
 
         h1 {
-            font-size: 2rem; /* Adjust font size as needed */
-            margin-bottom: 20px;
+            font-size: 2rem; /* Use relative font size */
+            margin-bottom: 5%;
             color: #333;
         }
 
         p {
-            font-size: 1.2rem; /* Adjust font size as needed */
+            font-size: 1.2rem; /* Use relative font size */
             color: #555;
+            margin-bottom: 5%;
         }
 
         a {
@@ -55,30 +54,21 @@
         }
     </style>
 </head>
-<bodyx>
+<body class="bodyx"> <!-- The outer body with the background -->
     <div class="confirmation-container">
         <h1>@ViewData["Title"]</h1>
-        @{
-            if (@Model.DisplayConfirmAccountLink)
-            {
-                <p>
-                    This app does not currently have a real email sender registered, see 
-                    <a href="https://aka.ms/aspaccountconf">these docs</a> for how to configure a real email sender.
-                    Normally this would be emailed:
-                    <a id="confirm-link" href="@Model.EmailConfirmationUrl">Click here to confirm your account</a>
-
-
-                </p>
-            }
-            else
-            {
-                <p>
-                    Please check your email to confirm your account.
-                </p>
-            }
+        @if (@Model.DisplayConfirmAccountLink)
+        {
+            <p>
+                <a id="confirm-link" href="@Model.EmailConfirmationUrl">Kaydınızı onaylamak için buraya tıklayınız.</a>
+            </p>
+        }
+        else
+        {
+            <p>
+                Please check your email to confirm your account.
+            </p>
         }
     </div>
-</bodyx>
-
+</body>
 </html>
-

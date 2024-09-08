@@ -9,51 +9,55 @@
     
     <title>@ViewBag.Title</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            background-color: rgba(245, 242, 235, 255);  /* Same background as other pages */
+            background-color: rgba(245, 242, 235, 255);  /* Consistent background */
             font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
 
         .form-container {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
             padding: 20px;
-            margin-top: 50px;
             width: 100%;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+            max-width: 600px; /* Max width to avoid stretching on larger screens */
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         h2 {
             color: #2c3e50;
-            font-size: 2.5rem;
-            margin-bottom: 30px;
+            font-size: 2rem;
+            margin-bottom: 20px;
             text-align: center;
             font-weight: bold;
         }
 
         .form-group {
-            margin-bottom: 20px;
-            width: 100%;
+            margin-bottom: 15px;
         }
 
         label {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             color: #34495e;
+            margin-bottom: 8px;
             display: block;
-            margin-bottom: 10px;
         }
 
         .form-control {
             width: 100%;
             padding: 10px;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             border: 2px solid #2980b9;
             border-radius: 5px;
             margin-bottom: 10px;
@@ -64,24 +68,22 @@
         }
 
         .btn {
-            padding: 12px 30px;
-            font-size: 1.4rem;
+            padding: 12px;
+            font-size: 1.2rem;
             border-radius: 5px;
-            text-decoration: none;
-            margin-top: 20px;
-            display: inline-block;
             background-color: #2980b9;
-            color: #fff;
+            color: white;
             border: none;
             cursor: pointer;
-            text-align: center;
             transition: background-color 0.3s;
-            width: 100%;
+            width: 100%; /* Full width for the button */
+            margin-top: 15px;
         }
 
         .btn:hover {
             background-color: #3498db;
         }
+
     </style>
 </head>
 
@@ -107,7 +109,7 @@
                 <span asp-validation-for="Hafta" class="text-danger"></span>
             </div>
 
-            <button type="submit" class="btn btn-primary">Seç</button>
+            <button type="submit" class="btn">Seç</button>
         </form>
     </div>
 </body>

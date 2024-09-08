@@ -22,12 +22,12 @@
 
         .register-box {
             background-color: rgba(255, 255, 255, 0.8); 
-            padding: 5px;
+            padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 500px;
-            max-width: 90%;
-            margin-top: 110px;
+            width: 100%;
+            max-width: 500px;
+            margin-top: 50px;
         }
 
         .input-box {
@@ -39,7 +39,7 @@
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
-            font-size: 1em;
+            font-size: 1rem;
         }
 
         .profile-icon-wrapper {
@@ -82,7 +82,7 @@
 
         .flex-row {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             gap: 15px;
         }
 
@@ -103,7 +103,7 @@
         <input type="hidden" asp-for="Input.Role" />
 
         <!-- Profile Image Upload with Default Icon -->
-        <div class="form-group">
+        <div class="form-group profile-icon-wrapper">
             <label for="profileImageInput">
                 <img src="~/Images/profile.png" alt="Profile Icon" class="profile-icon" id="profileIcon">
             </label>
@@ -117,7 +117,7 @@
             <span asp-validation-for="Input.Email" class="text-danger"></span>
         </div>
 
-        <!-- Name and Surname side by side -->
+        <!-- Name and Surname fields stacked -->
         <div class="flex-row">
             <div class="input-box">
                 <input asp-for="Input.Name" class="input-field" placeholder="Ad" required>
@@ -146,7 +146,7 @@
             </div>
         }
 
-        <!-- Password and Confirm Password side by side -->
+        <!-- Password and Confirm Password fields stacked -->
         <div class="flex-row">
             <div class="input-box">
                 <input asp-for="Input.Password" class="input-field" placeholder="Şifre" autocomplete="new-password" required>

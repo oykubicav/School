@@ -5,10 +5,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Public Hikayeler | Ludiflex</title>
+    <title> Hikayeler | Ludiflex</title>
     <style>
         body {
             background-color: rgba(245, 242, 235, 255);
@@ -16,19 +14,21 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
 
-        /* Container for the entire content */
         .contain {
             display: flex;
+            flex-direction: column;
             justify-content: flex-start;
             align-items: center;
-            flex-direction: column;
             padding: 20px;
             margin-top: 50px;
             width: 100%;
             max-width: 1200px;
-            overflow-y: auto; /* Allows scrolling if there are too many stories */
         }
 
         /* Style for the card */
@@ -39,14 +39,14 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
             padding: 20px;
-            width: 90%; /* Increase the width of the card */
-            max-width: 1000px; /* Ensure it doesn't get too wide */
+            width: 100%; /* Full width but constrained by max-width */
+            max-width: 800px;
         }
 
         /* Title style */
         .card-title {
             color: #2c3e50;
-            font-size: 3rem;
+            font-size: 1.8rem;
             font-weight: bold;
             margin-bottom: 15px;
         }
@@ -54,13 +54,13 @@
         /* Text style */
         .card-text {
             color: #34495e;
-            font-size: 2rem;
+            font-size: 1.2rem;
             margin-bottom: 20px;
         }
 
-        /* Flex container for buttons */
         .button-container {
             display: flex;
+            flex-wrap: wrap;
             gap: 10px; /* Add space between buttons */
         }
 
@@ -71,10 +71,8 @@
             border-radius: 5px;
             text-decoration: none;
             display: inline-block;
-            width: 150px;   /* Ensures all buttons have the same width */
-            height: 45px;   /* Ensures all buttons have the same height */
+            width: 150px;  
             text-align: center;
-            line-height: 25px; /* Align text vertically */
         }
 
         .btn-primary {
@@ -100,19 +98,26 @@
         /* Title styling */
         h2.text-primary {
             color: #2c3e50;
-            font-size: 2.5rem;
+            font-size: 2rem;
             margin-bottom: 30px;
             text-align: center;
             width: 100%;
         }
 
-        /* Additional styling for the page */
+        /* Ensuring cards remain centered and flexible */
         .row {
             width: 100%;
         }
 
         .col-12 {
             width: 100%;
+        }
+
+        /* Flexbox for form buttons to ensure responsiveness */
+        form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
     </style>
 </head>
@@ -147,7 +152,7 @@
                 </p>
                 
                 <div class="button-container">
-                    <a href="@Url.Action("Details", "HikayeÖzeti", new { area = "Öğrenci", id = @obj.Id })" class="btn has-before">Devamını Oku</a> 
+                    <a href="@Url.Action("Details", "HikayeÖzeti", new { area = "Öğrenci", id = @obj.Id })" class="btn btn-primary">Devamını Oku</a> 
                     <a href="@Url.Action("Edit", "HikayeÖzeti", new { area = "Öğrenci", id = @obj.Id })" class="btn btn-primary">Düzenle</a>
                     <form action="/Öğrenci/HikayeÖzeti/Delete/@obj.Id" method="post">
                         <input name="__RequestVerificationToken" type="hidden" value="...anti-forgery-token-value...">

@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Public Hikayeler | Ludiflex</title>
+    <title>Hikayeler | Ludiflex</title>
     <style>
         body {
             background-color: rgba(245, 242, 235, 255);
@@ -16,19 +16,21 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
 
         /* Container for the entire content */
         .contain {
             display: flex;
-            justify-content: flex-start;
-            align-items: center;
             flex-direction: column;
             padding: 20px;
-            margin-top: 50px;
             width: 100%;
-            max-width: 1200px;
-            overflow-y: auto; /* Allows scrolling if there are too many stories */
+            max-width: 1000px;
+            margin: 0 auto;
+            box-sizing: border-box;
         }
 
         /* Style for the card */
@@ -39,29 +41,28 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
             padding: 20px;
-            width: 90%; /* Increase the width of the card */
-            max-width: 1000px; /* Ensure it doesn't get too wide */
+            width: 100%; /* Makes the card take up full width within the container */
         }
 
         /* Title style */
         .card-title {
             color: #2c3e50;
-            font-size: 3rem;
+            font-size: 2rem;
             font-weight: bold;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
 
         /* Text style */
         .card-text {
             color: #34495e;
-            font-size: 2rem;
+            font-size: 1.2rem;
             margin-bottom: 20px;
         }
 
         /* Flex container for buttons */
         .button-container {
             display: flex;
-            gap: 10px; /* Add space between buttons */
+            gap: 10px;
         }
 
         /* Button style */
@@ -71,62 +72,33 @@
             border-radius: 5px;
             text-decoration: none;
             display: inline-block;
-            width: 150px;   /* Ensures all buttons have the same width */
-            height: 45px;   /* Ensures all buttons have the same height */
             text-align: center;
-            line-height: 25px; /* Align text vertically */
-        }
-
-        .btn-primary {
             background-color: #2980b9;
-            color: #fff;
+            color: white;
+            cursor: pointer;
+            width: 100%; /* Make button responsive */
         }
 
         .btn-primary:hover {
             background-color: #3498db;
         }
 
-        .btn-danger {
-            background-color: #e74c3c;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn-danger:hover {
-            background-color: #c0392b;
-        }
-
         /* Title styling */
         h2.text-primary {
             color: #2c3e50;
-            font-size: 2.5rem;
+            font-size: 2rem;
             margin-bottom: 30px;
             text-align: center;
-            width: 100%;
-        }
-
-        /* Additional styling for the page */
-        .row {
-            width: 100%;
-        }
-
-        .col-12 {
-            width: 100%;
         }
     </style>
 </head>
 <body>
 <div class="contain">
-    <div class="row">
-        <div class="col-12">
-            <h2 class="text-primary">Çocuğumun Hikayeleri</h2>
-        </div>
-    </div>
+    <h2 class="text-primary">Çocuğumun Hikayeleri</h2>
 
     @foreach (var obj in Model)
     {
-        <div class="card mb-4 hikaye-card">
+        <div class="hikaye-card">
             <div class="card-body">
                 <h5 class="card-title">@obj.HikayeAdı</h5>
                 <p class="card-text">
@@ -147,8 +119,7 @@
                 </p>
                 
                 <div class="button-container">
-                    <a href="@Url.Action("Details", "HikayeÖzeti", new { area = "Veli", id = @obj.Id })" class="btn has-before">Devamını Oku</a> 
-                    
+                    <a href="@Url.Action("Details", "HikayeÖzeti", new { area = "Veli", id = @obj.Id })" class="btn">Devamını Oku</a> 
                 </div>
             </div>
         </div>

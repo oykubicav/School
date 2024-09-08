@@ -1,44 +1,42 @@
 @model TestIdentityApp.Data.Models.DersIcerik
 @{
-
-Layout = "_Layout";
+    Layout = "_Layout";
 }
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="~/css/style.css">
-    <title>Create Ödev | Ludiflex</title>
+    <title>Create İçerik | Ludiflex</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            background-color: rgba(245,242,235,255);  /* Background color, adjust as needed */
+            background-color: rgba(245, 242, 235, 255);  
+            font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             margin: 0;
-            padding-bottom: 0px;
-            padding-left: 0px;
-            padding-right: 0px;
-            box-sizing: border-box;
+            padding: 0;
         }
 
         .create-container {
             display: flex;
-          
-         
             flex-direction: column;
-            height: 100vh;
-            padding: 0;
+            width: 100%;
             max-width: 800px;
+            padding: 20px;
             margin: 0 auto;
         }
 
         .create-header {
-            font-size: 2.5rem;
+            font-size: 2rem;
             margin-bottom: 30px;
             color: #2c3e50;
             text-align: center;
@@ -46,54 +44,49 @@ Layout = "_Layout";
 
         .input-box {
             width: 100%;
-            max-width: 700px;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .input-box label {
             display: block;
-            font-size: 1.3rem;
-            margin-bottom: 10px;
+            font-size: 1.2rem;
+            margin-bottom: 8px;
             color: #34495e;
         }
 
+        .form-control, .text-area {
+            width: 100%;
+            padding: 10px;
+            font-size: 1.1rem;
+            border: 2px solid #2980b9;
+            border-radius: 8px;
+        }
+
         .text-area {
-            width: 400px;
-            height: 400px;
-            padding: 20px;
-            font-size: 1.2rem;
-            border: 3px solid #2980b9;
-            border-radius: 10px;
+            height: 150px;
             resize: none;
         }
 
-        .form-control {
-            width: 100%;
-            padding: 15px;
-            font-size: 1.2rem;
-            border: 3px solid #2980b9;
-            border-radius: 10px;
-        }
-
         .submit-btn {
-            padding: 15px 50px;
-            background-color: var(--kappel);
+            padding: 12px;
+            background-color: #2980b9;
             color: #fff;
             border: none;
-            border-radius: 10px;
-            font-size: 1.3rem;
+            border-radius: 8px;
+            font-size: 1.2rem;
             cursor: pointer;
-            width: 400px;
-            max-width: 400px;
-            margin-top: 20px;
+            width: 100%;
             text-align: center;
+            transition: background-color 0.3s ease;
         }
 
         .submit-btn:hover {
             background-color: #3498db;
         }
-        body {
-            margin-top: 150px; /* Adjust this value to match the height of your navbar */
+
+        .text-danger {
+            color: red;
+            font-size: 0.9rem;
         }
 
     </style>
@@ -103,33 +96,29 @@ Layout = "_Layout";
     <div class="create-container">
         <header class="create-header">İçerik Ekle</header>
 
-        <form asp-action="Create" method="post" enctype="multipart/form-data">>
+        <form asp-action="Create" method="post" enctype="multipart/form-data">
             <div class="input-box">
                 <label for="DersAdi">Ders Adı</label>
                 <input asp-for="DersAdi" class="form-control" id="DersAdi" name="DersAdi" required>
                 <span asp-validation-for="DersAdi" class="text-danger"></span>
             </div>
+
             <div class="input-box">
                 <label for="Konu">Konu</label>
                 <input asp-for="Konu" class="form-control" id="Konu" name="Konu" required>
                 <span asp-validation-for="Konu" class="text-danger"></span>
             </div>
 
-           
-
             <div class="input-box">
                 <label asp-for="IcerikFiles">Ders Dosyası</label>
-                <input asp-for="IcerikFiles" class="form-control"name="IcerikFiles"id="IcerikFiles" type="file" multiple  />
+                <input asp-for="IcerikFiles" class="form-control" name="IcerikFiles" id="IcerikFiles" type="file" multiple />
                 <span asp-validation-for="IcerikFiles" class="text-danger"></span>
             </div>
 
-                <div class="input-box">
+            <div class="input-box">
                 <button type="submit" class="submit-btn">Kaydet</button>
             </div>
         </form>
-
     </div>
-
-   
 </body>
 </html>
