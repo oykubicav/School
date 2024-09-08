@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using TestIdentityApp.Models;
 using TestIdentityApp.Data.Models;
@@ -11,18 +12,47 @@ namespace TestIdentityApp.Areas.Öğretmen.Controllers
     public class HikayeÖzetiController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public HikayeÖzetiController(IUnitOfWork unitOfWork)
+        public HikayeÖzetiController(IUnitOfWork unitOfWork,UserManager<ApplicationUser> userManager)
         {
             _unitOfWork = unitOfWork;
+            _userManager = userManager;
         }
 
         // GET: HikayeÖzeti/Index
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            List<HikayeÖzeti> hikayÖzetiList = _unitOfWork.HikayeÖzeti.GetAll().ToList();
-            return View(hikayÖzetiList);
+            var user = await _userManager.GetUserAsync(User);
+
+            // Fetch the stories for the student
+            var hikayeOzetleri = _unitOfWork.HikayeÖzeti.GetAll(h => h.ÖğrenciId == user.Id).ToList();
+
+            // Create a list of view models
+            List<HikayeÖzetiViewModel> viewModelList = new List<HikayeÖzetiViewModel>();
+
+            foreach (var hikaye in hikayeOzetleri)
+            {
+                // Fetch the related student (ApplicationUser) by ÖğrenciId
+                var öğrenci = await _userManager.FindByIdAsync(hikaye.ÖğrenciId);
+
+                // Populate the view model with both story and student details
+                var viewModel = new HikayeÖzetiViewModel
+                {
+                    Id = hikaye.Id,
+                    HikayeAdı = hikaye.HikayeAdı,
+                    Özet = hikaye.Özet,
+                    ÖğrenciName = öğrenci.Ad,
+                    ÖğrenciSurname = öğrenci.Soyad
+                };
+
+                viewModelList.Add(viewModel);
+            }
+
+            // Pass the view model list to the view
+            return View(viewModelList);
         }
+
 
         // GET: HikayeÖzeti/Create
       

@@ -12,13 +12,15 @@
     <style>
 
         body {
-            background-color: rgba(245,242,235,255);  /* Background color */
+            background-color: rgba(245,242,235,255);  /* Background color, adjust as needed */
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items:flex-start;
             min-height: 100vh;
             margin: 0;
-            padding: 0;
+            padding-bottom: 0px;
+            padding-left: 0px;
+            padding-right: 0px;
             box-sizing: border-box;
         }
 
@@ -27,19 +29,17 @@
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 90%; /* Takes up 90% of the screen width */
-            max-width: 400px; /* Maximum width for larger screens */
-            margin-top: 100px;
-            min-height: 500px; /* Adjusted minimum height */
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            width: 400px; /* Adjusted to make the box wider */
+            max-width: 90%;
+            margin-top: 110px;
+            padding: 60px 20px;
+            min-height: 600px;
         }
 
         .login-header header {
-            font-size: 1.8em;
+            font-size: 1.5em;
             margin-bottom: 20px;
-            color: #333;
+            color: #333; /* Darker text color */
             text-align: center;
         }
 
@@ -49,10 +49,10 @@
 
         .input-field {
             width: 100%; /* Full width of the box */
-            padding: 10px;
+            padding: 10px; /* Adjusted padding for a more substantial input box */
             border: 1px solid #ccc;
             border-radius: 5px;
-            font-size: 1.2em;
+            font-size: 1.2em; /* Slightly larger font size for better readability */
         }
 
         .forgot {
@@ -75,11 +75,10 @@
             background-color: var(--kappel); /* Button color */
             color: white;
             border: none;
-            padding: 15px 20px; /* Larger button for touch-friendly size */
+            padding: 15px 20px; /* Adjusted padding for a larger button */
             border-radius: 5px;
             cursor: pointer;
             width: 100%; /* Full width of the box */
-            font-size: 1.2em; /* Larger text for better readability */
         }
 
         .sign-up-link {
@@ -91,7 +90,6 @@
             color: var(--kappel);
             text-decoration: none;
         }
-
         .text-danger {
             display: block;
             min-height: 1.5em; /* Reserve space even when there's no error */
@@ -103,50 +101,48 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 100%;
         }
-
-    </style>
-</head>
+</style>
+        </head>
 <body>
-<div class="container">
-    <div class="login-box">
-        <div class="login-header">
-            <header>Giriş Yap</header>
-        </div>
-
-        @if (TempData["Message"] != null)
-        {
-        <div class="alert alert-success">
-            @TempData["Message"]
-        </div>
-        }
-        <form id="account" method="post">
-            <div class="input-box">
-                <input asp-for="Input.Email" class="input-field" placeholder="Email" autocomplete="username" required>
-                <span asp-validation-for="Input.Email" class="text-danger"></span>
-            </div>
-            <div class="input-box">
-                <input asp-for="Input.Password" class="input-field" placeholder="Şifre" autocomplete="current-password" required>
-                <span asp-validation-for="Input.Password" class="text-danger"></span>
-            </div>
-            <div class="forgot">
-                <section>
-                    <input asp-for="Input.RememberMe" type="checkbox" id="check">
-                    <label for="check">Beni Hatırla</label>
-                </section>
-                <section>
-                    <a id="forgot-password" asp-page="./ForgotPassword">Şifremi Unuttum</a>
-                </section>
-            </div>
-            <div class="input-submit">
-                <button type="submit" class="submit-btn" id="login-submit">Giriş Yap</button>
-            </div>
-        </form>
-        <div class="sign-up-link">
-            <p>Hesabın yok mu? <a asp-page="./SelectRole" asp-route-returnUrl="@Model.ReturnUrl">Kayıt Ol</a></p>
-        </div>
+<div class="body-header">
+<div class="login-box">
+    <div class="login-header">
+        <header>Giriş Yap</header>
     </div>
+
+    @if (TempData["Message"] != null)
+    {
+    <div class="alert alert-success">
+        @TempData["Message"]
+    </div>
+    }
+    <form id="account" method="post">
+        <div class="input-box">
+            <input asp-for="Input.Email" class="input-field" placeholder="Email" autocomplete="username" required>
+            <span asp-validation-for="Input.Email" class="text-danger"></span>
+        </div>
+        <div class="input-box">
+            <input asp-for="Input.Password" class="input-field" placeholder="Şifre" autocomplete="current-password" required>
+            <span asp-validation-for="Input.Password" class="text-danger"></span>
+        </div>
+        <div class="forgot">
+            <section>
+                <input asp-for="Input.RememberMe" type="checkbox" id="check">
+                <label for="check">Beni Hatırla</label>
+            </section>
+            <section>
+                <a id="forgot-password" asp-page="./ForgotPassword">Şifremi Unuttum</a>
+            </section>
+        </div>
+        <div class="input-submit">
+            <button type="submit" class="submit-btn" id="login-submit">Giriş Yap</button>
+        </div>
+    </form>
+    <div class="sign-up-link">
+        <p>Hesabın yok mu? <a asp-page="./SelectRole" asp-route-returnUrl="@Model.ReturnUrl">Kayıt Ol</a></p>
+    </div>
+</div>
 </div>
 
 @section Scripts {

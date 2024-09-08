@@ -15,22 +15,18 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
         }
 
         .container {
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
             flex-direction: column;
             padding: 20px;
-            margin-top: 100px; /* Reduced margin for better spacing */
-            width: 90%; /* Flexible width for responsiveness */
-            max-width: 1000px; /* Limit the maximum width */
-            box-sizing: border-box;
+            margin-top: 300px;
+            width: 100%;
+            max-width: 1200px;
+            overflow-y: auto;
         }
 
         .hikaye-details-card {
@@ -38,13 +34,15 @@
             border-radius: 10px;
             background-color: #ffffff;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
             padding: 20px;
-            width: 100%; /* Takes the full width of the container */
+            width: 90%;
+            max-width: 1000px;
         }
 
         .details-title {
             color: #2c3e50;
-            font-size: 2rem; /* Adjust font size for responsiveness */
+            font-size: 3rem;
             font-weight: bold;
             margin-bottom: 15px;
             text-align: center;
@@ -52,10 +50,9 @@
 
         .details-text {
             color: #34495e;
-            font-size: 1.2rem; /* Smaller font size for better readability */
+            font-size: 2rem;
             margin-bottom: 20px;
             line-height: 1.6;
-            text-align: justify; /* Justify the text for better readability */
         }
 
         .btn-primary {
@@ -66,9 +63,6 @@
             border-radius: 5px;
             text-decoration: none;
             display: inline-block;
-            width: 100%; /* Button takes full width on small screens */
-            max-width: 200px; /* Restricts max width */
-            text-align: center;
         }
 
         .btn-primary:hover {
