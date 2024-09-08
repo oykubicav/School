@@ -23,29 +23,40 @@ public class HomeController : Controller
 
     public async Task<IActionResult> Index()
     {
+        // Get the last Yıldız Öğrenci record or null if none exists
         var lastYıldızÖğrenci = _unitOfWork.YıldızÖğrenci.GetAll()
-            .OrderByDescending(yo => yo.Id) // Assuming Id is the primary key
+            .OrderByDescending(yo => yo.Id)
             .FirstOrDefault();
 
-        
-            var user = await _userManager.GetUserAsync(User);
-            if (user != null)
+        var user = await _userManager.GetUserAsync(User);
+
+        // Prepare an empty model if there's no Yıldız Öğrenci or user
+        var model = new HomeViewModel();
+
+        if (user != null)
+        {
+            var roles = await _userManager.GetRolesAsync(user);
+
+            // If there's a Yıldız Öğrenci record, find the student
+            if (lastYıldızÖğrenci != null)
             {
-                var roles = await _userManager.GetRolesAsync(user);
                 var student = await _userManager.FindByIdAsync(lastYıldızÖğrenci.ÖğrenciId);
-                var model = new HomeViewModel
-                {  Name = student.Ad,
-                    Surname = student.Soyad,
-                    User = user,
-                    Roles = roles ?? new List<string>()
-                };
-        
-                return View(model);
+                if (student != null)
+                {
+                    model.Name = student.Ad;
+                    model.Surname = student.Soyad;
+                }
             }
-    
-            // If the user is not logged in, return the view without any model
-            return View();
+
+            // Set user and roles regardless of Yıldız Öğrenci existence
+            model.User = user;
+            model.Roles = roles ?? new List<string>();
         }
+
+        // Return the populated model to the view
+        return View(model);
+    }
+
 
     public IActionResult Blog()
     {
