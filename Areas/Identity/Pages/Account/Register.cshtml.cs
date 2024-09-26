@@ -247,7 +247,8 @@ namespace TestIdentityApp.Areas.Identity.Pages.Account
                 protocol: Request.Scheme);
 
             // Simply redirect to the confirmation page without sending the email
-            return RedirectToPage("RegisterConfirmation", new { email = Input.Email, returnUrl = returnUrl });
+            return RedirectToPage("/Account/RegisterConfirmation", 
+                new { area = "Identity", email = Input.Email, returnUrl = returnUrl });
         }
 
         private IUserEmailStore<ApplicationUser> GetEmailStore()

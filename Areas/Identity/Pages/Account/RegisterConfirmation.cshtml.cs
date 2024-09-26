@@ -46,7 +46,8 @@ namespace TestIdentityApp.Areas.Identity.Pages.Account
         public string EmailConfirmationUrl { get; set; }
 
         public async Task<IActionResult> OnGetAsync(string email, string returnUrl = null)
-        {
+      
+        {  ViewData["Title"] = "Register Confirmation"; 
             if (email == null)
             {
                 return RedirectToPage("/Index");
